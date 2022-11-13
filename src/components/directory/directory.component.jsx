@@ -1,3 +1,5 @@
+import "./directory.styles.scss"
+
 const Directory = ({ categories }) => {
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
@@ -17,39 +19,39 @@ const Directory = ({ categories }) => {
         <div className="flex flex-wrap w-full">
           <div className="flex flex-wrap w-full lg:w-1/2">
             <div
-              className="border border-white hover:cursor-pointer hover:scale-105 ease-in-out duration-1000  00 mt-2 m-2 md:ml-2 md:mr-auto w-full md:w-[48%] h-[40vw] md:h-[25vw] bg-center bg-cover bg-no-repeat flex justify-center items-center md:justify-start md:items-end"
+              className="image-container tag-center md:tag-left small-container-left"
               style={{
                 backgroundImage: `url(${categories[0].imageUrl})`,
               }}
             >
-              <div className="rounded-lg md:rounded-none md:rounded-tr-[20px] w-1/3 lg:w-3/5 h-1/2 md:h-1/3 flex flex-col justify-center text-center text-white text-opacity-50 bg-black border border-white opacity-70 hover:opacity-80 content-center">
-                <h2 className="text-2xl sm:text-3xl ">
+              <div className="tag-content small-tag-content tag-left-border">
+                <h2 className="tag-font">
                   {categories[0].title.toUpperCase()}
                 </h2>
                 <p>Shop Now</p>
               </div>
             </div>
             <div
-              className="border border-white hover:cursor-pointer hover:scale-105 ease-in-out duration-1000  00 mt-2 m-2 md:mr-2 md:ml-auto w-full md:w-[48%] h-[40vw] md:h-[25vw] bg-center bg-cover bg-no-repeat flex justify-center items-center md:justify-end md:items-end"
+              className="image-container tag-center md:tag-right small-container-right"
               style={{
                 backgroundImage: `url(${categories[1].imageUrl})`,
               }}
             >
-              <div className="rounded-lg md:rounded-none md:rounded-tl-[20px] w-1/3 lg:w-3/5 h-1/2 md:h-1/3 flex flex-col justify-center text-center text-white text-opacity-50 bg-black border border-white opacity-70 hover:opacity-80 content-center">
-                <h2 className="text-2xl sm:text-3xl ">
+              <div className="tag-content small-tag-content tag-right-border">
+                <h2 className="tag-font">
                   {categories[1].title.toUpperCase()}
                 </h2>
                 <p>Shop Now</p>
               </div>
             </div>
             <div
-              className="border border-white hover:cursor-pointer hover:scale-105 ease-in-out duration-1000  00 m-2 w-full h-[40vw] lg:h-[25vw] bg-center bg-cover bg-no-repeat flex justify-center items-center md:items-end"
+              className="image-container tag-center large-container"
               style={{
                 backgroundImage: `url(${categories[2].imageUrl})`,
               }}
             >
-              <div className="rounded-lg md:rounded-none md:rounded-t-[20px] w-1/3 h-1/2 md:h-1/3 flex flex-col justify-center text-center text-white text-opacity-50 bg-black border border-white opacity-70 hover:opacity-80 content-center">
-                <h2 className="text-2xl sm:text-3xl ">
+              <div className="rounded-t-[20px] tag-content large-tag-content">
+                <h2 className="tag-font">
                   {categories[2].title.toUpperCase()}
                 </h2>
                 <p>Shop Now</p>
@@ -58,39 +60,39 @@ const Directory = ({ categories }) => {
           </div>
           <div className="flex flex-wrap w-full lg:w-1/2">
             <div
-              className="border border-white hover:cursor-pointer hover:scale-105 ease-in-out duration-1000  00 m-2 w-full h-[40vw] lg:h-[25vw] bg-center bg-cover bg-no-repeat flex justify-center items-center md:items-end"
+              className="image-container tag-center large-container"
               style={{
                 backgroundImage: `url(${categories[3].imageUrl})`,
               }}
             >
-              <div className="rounded-lg md:rounded-none md:rounded-t-[20px] w-1/3 h-1/2 md:h-1/3 flex flex-col justify-center text-center text-white text-opacity-50 bg-black border border-white opacity-70 hover:opacity-80 content-center">
-                <h2 className="text-2xl sm:text-3xl ">
+              <div className="rounded-t-[20px] tag-content large-tag-content">
+                <h2 className="tag-font">
                   {categories[3].title.toUpperCase()}
                 </h2>
                 <p>Shop Now</p>
               </div>
             </div>
             <div
-              className="border border-white hover:cursor-pointer hover:scale-105 ease-in-out duration-1000  00 mt-2 m-2 md:ml-2 md:mr-auto w-full md:w-[48%] h-[40vw] md:h-[25vw] bg-center bg-cover bg-no-repeat flex justify-center items-center md:justify-start md:items-end"
+              className="image-container tag-center md:tag-left small-container-left"
               style={{
                 backgroundImage: `url(${categories[4].imageUrl})`,
               }}
             >
-              <div className="rounded-lg md:rounded-none md:rounded-tr-[20px] w-3/5 sm:w-1/3 md:w-3/5 lg:w-4/5 h-1/2 md:h-1/3 flex flex-col justify-center text-center text-white text-opacity-50 bg-black border border-white opacity-70 hover:opacity-80 content-center">
-                <h2 className="text-2xl sm:text-3xl ">
+              <div className="tag-content small-tag-content tag-left-border">
+                <h2 className="tag-font">
                   {categories[4].title.toUpperCase()}
                 </h2>
                 <p>Shop Now</p>
               </div>
             </div>
             <div
-              className="border border-white hover:cursor-pointer hover:scale-105 ease-in-out duration-1000  00 mt-2 m-2 md:mr-2 md:ml-auto w-full md:w-[48%] h-[40vw] md:h-[25vw] bg-center bg-cover bg-no-repeat flex justify-center items-center md:justify-end md:items-end"
+              className="image-container tag-center md:tag-right small-container-right"
               style={{
                 backgroundImage: `url(${categories[5].imageUrl})`,
               }}
             >
-              <div className="rounded-lg md:rounded-none md:rounded-tl-[20px] w-1/3 lg:w-3/5 h-1/2 md:h-1/3 flex flex-col justify-center text-center text-white text-opacity-50 bg-black border border-white opacity-70 hover:opacity-80 content-center">
-                <h2 className="text-2xl sm:text-3xl ">
+              <div className="tag-content small-tag-content tag-right-border">
+                <h2 className="tag-font">
                   {categories[5].title.toUpperCase()}
                 </h2>
                 <p>Shop Now</p>
