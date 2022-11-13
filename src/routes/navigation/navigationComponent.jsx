@@ -31,32 +31,26 @@ const Navigation = () => {
               <spnan className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></spnan>
             </div>
             <div className="flex items-center">
-              <ul className="sm:flex space-x-1 md:space-x-4 hidden items-center">
-                <li>
-                  <Link
-                    className="text-gray-700 hover:text-violet-700 text-md"
-                    to="/"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-gray-700 hover:text-violet-700 text-md"
-                    to="/shop"
-                  >
-                    Shop
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 hover:text-violet-700 text-md "
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
+              <div className="sm:flex space-x-1 md:space-x-4 hidden items-center">
+                <Link
+                  className="text-gray-700 hover:text-violet-700 text-md"
+                  to="/"
+                >
+                  Home
+                </Link>
+                <Link
+                  className="text-gray-700 hover:text-violet-700 text-md"
+                  to="/shop"
+                >
+                  Shop
+                </Link>
+                <a
+                  href="#"
+                  className="text-gray-700 hover:text-violet-700 text-md "
+                >
+                  Contact
+                </a>
+              </div>
 
               <div className="sm:flex items-center hidden space-x-4 ml-8 lg:ml-12">
                 <h1 className="text-text-gray-600 py-2 hover:cursor-pointer hover:text-violet-700">

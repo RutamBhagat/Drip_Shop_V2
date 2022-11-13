@@ -1,4 +1,4 @@
-import "./directory.styles.scss"
+import CategoryItem from "../category-item/category-item.component";
 
 const Directory = ({ categories }) => {
   return (
@@ -18,86 +18,10 @@ const Directory = ({ categories }) => {
         </div>
         <div className="flex flex-wrap w-full">
           <div className="flex flex-wrap w-full lg:w-1/2">
-            <div
-              className="image-container tag-center md:tag-left small-container-left"
-              style={{
-                backgroundImage: `url(${categories[0].imageUrl})`,
-              }}
-            >
-              <div className="tag-content small-tag-content tag-left-border">
-                <h2 className="tag-font">
-                  {categories[0].title.toUpperCase()}
-                </h2>
-                <p>Shop Now</p>
-              </div>
-            </div>
-            <div
-              className="image-container tag-center md:tag-right small-container-right"
-              style={{
-                backgroundImage: `url(${categories[1].imageUrl})`,
-              }}
-            >
-              <div className="tag-content small-tag-content tag-right-border">
-                <h2 className="tag-font">
-                  {categories[1].title.toUpperCase()}
-                </h2>
-                <p>Shop Now</p>
-              </div>
-            </div>
-            <div
-              className="image-container tag-center large-container"
-              style={{
-                backgroundImage: `url(${categories[2].imageUrl})`,
-              }}
-            >
-              <div className="rounded-t-[20px] tag-content large-tag-content">
-                <h2 className="tag-font">
-                  {categories[2].title.toUpperCase()}
-                </h2>
-                <p>Shop Now</p>
-              </div>
-            </div>
+            <CategoryItem index={0} categories={categories} />
           </div>
-          <div className="flex flex-wrap w-full lg:w-1/2">
-            <div
-              className="image-container tag-center large-container"
-              style={{
-                backgroundImage: `url(${categories[3].imageUrl})`,
-              }}
-            >
-              <div className="rounded-t-[20px] tag-content large-tag-content">
-                <h2 className="tag-font">
-                  {categories[3].title.toUpperCase()}
-                </h2>
-                <p>Shop Now</p>
-              </div>
-            </div>
-            <div
-              className="image-container tag-center md:tag-left small-container-left"
-              style={{
-                backgroundImage: `url(${categories[4].imageUrl})`,
-              }}
-            >
-              <div className="tag-content small-tag-content tag-left-border">
-                <h2 className="tag-font">
-                  {categories[4].title.toUpperCase()}
-                </h2>
-                <p>Shop Now</p>
-              </div>
-            </div>
-            <div
-              className="image-container tag-center md:tag-right small-container-right"
-              style={{
-                backgroundImage: `url(${categories[5].imageUrl})`,
-              }}
-            >
-              <div className="tag-content small-tag-content tag-right-border">
-                <h2 className="tag-font">
-                  {categories[5].title.toUpperCase()}
-                </h2>
-                <p>Shop Now</p>
-              </div>
-            </div>
+          <div className="flex flex-wrap-reverse w-full lg:w-1/2">
+            <CategoryItem index={3} categories={categories} />
           </div>
         </div>
       </div>
