@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 import HiddenMenu from "../../components/hidden-menu/hidden-menu.component";
-import "./navigationStyles.scss";
 
 const Navigation = () => {
   return (
