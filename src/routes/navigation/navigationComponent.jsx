@@ -26,9 +26,9 @@ const Navigation = () => {
               }}
               className="hover:cursor-pointer sm:hidden"
             >
-              <spnan className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></spnan>
-              <spnan className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></spnan>
-              <spnan className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></spnan>
+              <span className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></span>
+              <span className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></span>
+              <span className="h-1 rounded-full block w-8 mb-1 bg-gradient-to-tr from-violet-700 to-gray-900"></span>
             </div>
             <div className="flex items-center">
               <div className="sm:flex space-x-1 md:space-x-4 hidden items-center">
@@ -57,9 +57,11 @@ const Navigation = () => {
                   CART
                   <i className="fa-solid fa-cart-shopping px-1"></i>
                 </h1>
-                <h1 className="text-text-gray-600 py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-violet-700 to-gray-900">
-                  LOG IN
-                </h1>
+                <Link to="/signin">
+                  <h1 className="text-text-gray-600 py-2 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-violet-700 to-gray-900">
+                    LOG IN
+                  </h1>
+                </Link>
               </div>
             </div>
           </div>

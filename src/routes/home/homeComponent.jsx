@@ -4,7 +4,7 @@ const Home = () => {
   const categories = [
     {
       id: 1,
-      title: "jacket",
+      title: "jackets",
       imageUrl: "https://source.unsplash.com/qIQE6X0rVsU/500x300",
     },
     {
@@ -15,7 +15,7 @@ const Home = () => {
     {
       id: 3,
       title: "womens",
-      imageUrl: "https://source.unsplash.com/8a95EVm0ovQ/600x360",
+      imageUrl: "https://source.unsplash.com/8a95EVm0ovQ",
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ const Home = () => {
     {
       id: 6,
       title: "mens",
-      imageUrl: "https://source.unsplash.com/tmtizwShVRo/600x360",
+      imageUrl: "https://source.unsplash.com/tmtizwShVRo",
     },
   ];
   return (

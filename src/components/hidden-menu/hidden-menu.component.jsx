@@ -24,9 +24,11 @@ const HiddenMenu = () => {
           CART
           <i className="fa-solid fa-cart-shopping px-2"></i>
         </h1>
-        <h1 className="text-text-gray-600  py-1 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-violet-700 to-gray-900">
-          LOG IN
-        </h1>
+        <Link to="/signin">
+          <h1 className="text-text-gray-600  py-1 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-violet-700 to-gray-900">
+            LOG IN
+          </h1>
+        </Link>
       </div>
     </div>
   );

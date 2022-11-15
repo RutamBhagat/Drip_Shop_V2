@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./routes/home/homeComponent";
 import Navigation from "./routes/navigation/navigationComponent";
 import Shop from "./routes/shop/shopComponent";
+import Signin from "./routes/login/signin.components";
+import Register from "./routes/login/register.component";
 
 const App = () => {
   return (
@@ -9,6 +11,8 @@ const App = () => {
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="signin" element={<Signin />} />
+        <Route path="register" element={<Register />} />
       </Route>
     </Routes>
   );

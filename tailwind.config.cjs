@@ -19,6 +19,10 @@ module.exports = {
         veryPaleRed: "hsl(13, 100%, 96%)",
         veryLightGray: "hsl(0, 0%, 98%)",
       },
+      backgroundImage: {
+        store1: "url(https://source.unsplash.com/PpkID3ejSig)",
+        store2: "url(https://source.unsplash.com/x230a__cFO0)",
+      },
     },
   },
   plugins: [],
