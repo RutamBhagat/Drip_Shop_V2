@@ -2,7 +2,7 @@ import CategoryItem from "../category-item/category-item.component";
 
 const Directory = ({ categories }) => {
   return (
-    <section className="text-gray-400 bg-gray-800 body-font">
+    <section className="text-gray-400 bg-gray-800 body-font pt-24">
       <div className="mx-0 md:mx-5 lg:mx-12 px-5 py-24 flex flex-wrap">
         <div className="flex w-full mb-20 flex-wrap">
           <h1 className="sm:text-3xl text-2xl font-medium title-font text-white lg:w-1/3 lg:mb-0 mb-4">

@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./login.styles.scss";
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
 
 const Register = () => {
   return (
-    <div className="bg-gray-800 py-24 w-screen ">
+    <div className="bg-gray-800 py-36 w-screen">
       <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
         <div className="flex rounded-2xl shadow-lg w-full sm:w-3/4 bg-gray-700 sm:mx-0">
           <div className="flex flex-col w-full lg:w-1/2 p-4">
             <div className="w-full md:w-3/4 lg:w-full xl:w-3/4 mx-auto my-10 bg-gray-300 p-8 rounded-xl shadow shadow-slate-300">
               <h1 className="text-4xl font-medium">Sign Up</h1>
-              <p className="text-slate-500">Hi, Welcome back 👋</p>
+              <p className="text-slate-500">Hi, Welcome 👋</p>
               <form action="" className="mt-10 mb-5">
                 <div className="flex flex-col space-y-5">
                   <label htmlFor="name">

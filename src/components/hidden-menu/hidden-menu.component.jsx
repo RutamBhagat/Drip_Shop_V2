@@ -13,7 +13,7 @@ const HiddenMenu = () => {
         id="menu"
       >
         <Link className="text-white hover:text-violet-700 text-md" to="/">
-          <div class="card-zoom w-12 h-12 rounded-2xl mx-2 bg-indigo-900 hover:bg-indigo-700">
+          <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
             <div></div>
             <h1 class="card-zoom-text text-xl opacity-100">
               <i class="fa-solid fa-house"></i>
@@ -21,27 +21,27 @@ const HiddenMenu = () => {
           </div>
         </Link>
         <Link className="text-white hover:text-violet-700 text-md" to="/shop">
-          <div class="card-zoom w-12 h-12 rounded-2xl mx-2 bg-indigo-900 hover:bg-indigo-700">
+          <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
             <div></div>
             <h1 class="card-zoom-text text-xl opacity-100">
               <i class="fa-brands fa-shopify"></i>
             </h1>
           </div>
         </Link>
-        <div class="card-zoom w-12 h-12 rounded-2xl mx-2 bg-indigo-900 hover:bg-indigo-700">
+        <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
           <div></div>
           <h1 class="card-zoom-text text-xl opacity-100">
             <i class="fa-solid fa-address-book"></i>
           </h1>
         </div>
-        <div class="card-zoom w-12 h-12 rounded-2xl mx-2 bg-indigo-900 hover:bg-indigo-700">
+        <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
           <div></div>
           <h1 class="card-zoom-text text-xl opacity-100">
             <i class="fa-solid fa-cart-shopping"></i>
           </h1>
         </div>
         <Link to="/signin">
-          <div class="card-zoom w-12 h-12 rounded-2xl mx-2 bg-indigo-900 hover:bg-indigo-700">
+          <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
             <div></div>
             <h1 class="card-zoom-text text-xl opacity-100">
               <i class="fa-solid fa-right-to-bracket"></i>
