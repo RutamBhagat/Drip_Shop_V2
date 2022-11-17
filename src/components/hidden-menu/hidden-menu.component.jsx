@@ -13,38 +13,38 @@ const HiddenMenu = () => {
         id="menu"
       >
         <Link className="text-white hover:text-violet-700 text-md" to="/">
-          <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
+          <div className="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
             <div></div>
-            <h1 class="card-zoom-text text-xl opacity-100">
-              <i class="fa-solid fa-house"></i>
+            <h1 className="card-zoom-text text-xl opacity-100">
+              <i className="fa-solid fa-house"></i>
             </h1>
           </div>
         </Link>
         <Link className="text-white hover:text-violet-700 text-md" to="/shop">
-          <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
+          <div className="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
             <div></div>
-            <h1 class="card-zoom-text text-xl opacity-100">
-              <i class="fa-brands fa-shopify"></i>
+            <h1 className="card-zoom-text text-xl opacity-100">
+              <i className="fa-brands fa-shopify"></i>
             </h1>
           </div>
         </Link>
-        <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
+        <div className="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
           <div></div>
-          <h1 class="card-zoom-text text-xl opacity-100">
-            <i class="fa-solid fa-address-book"></i>
+          <h1 className="card-zoom-text text-xl opacity-100">
+            <i className="fa-solid fa-address-book"></i>
           </h1>
         </div>
-        <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
+        <div className="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
           <div></div>
-          <h1 class="card-zoom-text text-xl opacity-100">
-            <i class="fa-solid fa-cart-shopping"></i>
+          <h1 className="card-zoom-text text-xl opacity-100">
+            <i className="fa-solid fa-cart-shopping"></i>
           </h1>
         </div>
         <Link to="/signin">
-          <div class="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
+          <div className="drop-shadow-md card-zoom w-16 h-16 rounded-2xl mx-1 bg-black bg-opacity-60 hover:bg-indigo-800">
             <div></div>
-            <h1 class="card-zoom-text text-xl opacity-100">
-              <i class="fa-solid fa-right-to-bracket"></i>
+            <h1 className="card-zoom-text text-xl opacity-100">
+              <i className="fa-solid fa-right-to-bracket"></i>
             </h1>
           </div>
         </Link>
