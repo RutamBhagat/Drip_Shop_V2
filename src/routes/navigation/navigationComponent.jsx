@@ -5,8 +5,8 @@ import HiddenMenu from "../../components/hidden-menu/hidden-menu.component";
 const Navigation = () => {
   return (
     <Fragment>
-      <nav className="shadow">
-        <div className="flex justify-between items-center py-6 px-10 sm:px-3 md:px-10 mx-auto">
+      <nav className="shadow fixed top-0 right-0 left-0 z-50">
+        <div className="flex justify-between items-center bg-white p-5 px-10 sm:px-3 md:px-10 mx-auto">
           <div>
             <Link
               className="text-gray-700 hover:text-violet-700 text-md"
@@ -66,8 +66,8 @@ const Navigation = () => {
             </div>
           </div>
         </div>
+        <HiddenMenu />
       </nav>
-      <HiddenMenu />
       <Outlet />
     </Fragment>
   );

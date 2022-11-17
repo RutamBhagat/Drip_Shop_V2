@@ -3,31 +3,49 @@ import { Link } from "react-router-dom";
 
 const HiddenMenu = () => {
   return (
-    <div id="hidden-menu" className="hidden">
+    <div
+      id="hidden-menu"
+      className="hidden bg-transparent bg-gradient-to-l from-transparent to-gray-800"
+    >
       <div
-        className="flex flex-col items-center self-end pb-5 space-y-6 bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+        className="flex flex-col items-start justify-center p-5 drop-shadow-md sm:hidden"
         id="menu"
       >
-        <Link className="text-gray-700 hover:text-violet-700 text-md" to="/">
-          Home
+        <Link className="text-white hover:text-violet-700 text-md" to="/">
+          <div class="card-zoom w-12 h-12 rounded-2xl mr-5 mb-3 bg-indigo-900 hover:bg-indigo-700">
+            <div></div>
+            <h1 class="card-zoom-text text-xl opacity-100">
+              <i class="fa-solid fa-house"></i>
+            </h1>
+          </div>
         </Link>
-        <Link
-          className="text-gray-700 hover:text-violet-700 text-md"
-          to="/shop"
-        >
-          Shop
+        <Link className="text-white hover:text-violet-700 text-md" to="/shop">
+          <div class="card-zoom w-12 h-12 rounded-2xl mr-5 mb-3 bg-indigo-900 hover:bg-indigo-700">
+            <div></div>
+            <h1 class="card-zoom-text text-xl opacity-100">
+              <i class="fa-brands fa-shopify"></i>
+            </h1>
+          </div>
         </Link>
-        <a href="#" className="text-gray-700 hover:text-violet-700 text-md ">
-          Contact
-        </a>
-        <h1 className="text-text-gray-600 hover:cursor-pointer hover:text-violet-700">
-          CART
-          <i className="fa-solid fa-cart-shopping px-2"></i>
-        </h1>
-        <Link to="/signin">
-          <h1 className="text-text-gray-600  py-1 hover:cursor-pointer px-4 rounded text-white bg-gradient-to-tr from-violet-700 to-gray-900">
-            LOG IN
+        <div class="card-zoom w-12 h-12 rounded-2xl mr-5 mb-3 bg-indigo-900 hover:bg-indigo-700">
+          <div></div>
+          <h1 class="card-zoom-text text-xl opacity-100">
+            <i class="fa-solid fa-address-book"></i>
           </h1>
+        </div>
+        <div class="card-zoom w-12 h-12 rounded-2xl mr-5 mb-3 bg-indigo-900 hover:bg-indigo-700">
+          <div></div>
+          <h1 class="card-zoom-text text-xl opacity-100">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </h1>
+        </div>
+        <Link to="/signin">
+          <div class="card-zoom w-12 h-12 rounded-2xl mr-5 bg-indigo-900 hover:bg-indigo-700">
+            <div></div>
+            <h1 class="card-zoom-text text-xl opacity-100">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </h1>
+          </div>
         </Link>
       </div>
     </div>

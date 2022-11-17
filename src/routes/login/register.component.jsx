@@ -4,10 +4,10 @@ import "./login.styles.scss";
 
 const Register = () => {
   return (
-    <div class="bg-gray-800 py-12 w-screen ">
-      <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
-        <div class="flex rounded-2xl shadow-lg w-full sm:w-3/4 bg-white sm:mx-0">
-          <div class="flex flex-col w-full lg:w-1/2 p-4">
+    <div className="bg-gray-800 py-24 w-screen ">
+      <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
+        <div className="flex rounded-2xl shadow-lg w-full sm:w-3/4 bg-gray-700 sm:mx-0">
+          <div className="flex flex-col w-full lg:w-1/2 p-4">
             <div className="w-full md:w-3/4 lg:w-full xl:w-3/4 mx-auto my-10 bg-gray-300 p-8 rounded-xl shadow shadow-slate-300">
               <h1 className="text-4xl font-medium">Sign Up</h1>
               <p className="text-slate-500">Hi, Welcome back 👋</p>
@@ -103,9 +103,9 @@ const Register = () => {
               </form>
             </div>
           </div>
-          <div class="hidden lg:flex w-1/2 card-zoom">
-            <div class="card-zoom-image bg-store2"></div>
-            <h1 class="card-zoom-text">DRIP SHOP</h1>
+          <div className="hidden lg:flex w-1/2 card-zoom">
+            <div className="card-zoom-image bg-store2"></div>
+            <h1 className="card-zoom-text">DRIP SHOP</h1>
           </div>
           {}
         </div>
