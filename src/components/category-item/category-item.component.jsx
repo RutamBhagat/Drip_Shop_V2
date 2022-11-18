@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
-import "./category-items.styles.scss"
-
+import "./category-items.styles.scss";
 
 const CategoryItem = ({ index, categories }) => {
   return (
@@ -23,7 +22,9 @@ const CategoryItem = ({ index, categories }) => {
         }}
       >
         <div className="tag-content small-tag-content tag-right-border">
-          <h2 className="tag-font">{categories[index + 1].title.toUpperCase()}</h2>
+          <h2 className="tag-font">
+            {categories[index + 1].title.toUpperCase()}
+          </h2>
           <p>Shop Now</p>
         </div>
       </div>
@@ -33,8 +34,10 @@ const CategoryItem = ({ index, categories }) => {
           backgroundImage: `url(${categories[index + 2].imageUrl})`,
         }}
       >
-        <div className="rounded-t-[20px] tag-content large-tag-content">
-          <h2 className="tag-font">{categories[index + 2].title.toUpperCase()}</h2>
+        <div className="tag-content large-tag-content rounded-t-[20px]">
+          <h2 className="tag-font">
+            {categories[index + 2].title.toUpperCase()}
+          </h2>
           <p>Shop Now</p>
         </div>
       </div>

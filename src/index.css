@@ -2,24 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .card-zoom {
-    @apply relative flex items-center justify-center overflow-hidden shadow-xl rounded-r-2xl;
+    @apply relative flex items-center justify-center overflow-hidden rounded-r-2xl shadow-xl;
   }
 
   .card-zoom-image {
-    @apply absolute w-full h-full transition-all duration-500 ease-in-out transform bg-center bg-cover;
+    @apply absolute h-full w-full transform bg-cover bg-center transition-all duration-500 ease-in-out;
   }
 
   .card-zoom-text {
-    @apply absolute text-4xl font-black transition-all duration-500 ease-in-out transform scale-150 text-gray-50 opacity-60;
+    @apply absolute scale-150 transform text-7xl font-black text-gray-50 opacity-60 transition-all duration-500 ease-in-out;
   }
 
   .card-zoom:hover .card-zoom-image {
     @apply scale-150;
   }
-  
+
   .card-zoom:hover .card-zoom-text {
     @apply scale-100;
   }
@@ -27,15 +26,14 @@
 
 body {
   margin: 0;
-  font-family: 'Open Sans Condensed', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Open Sans Condensed", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 

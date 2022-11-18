@@ -2,13 +2,13 @@ import CategoryItem from "../category-item/category-item.component";
 
 const Directory = ({ categories }) => {
   return (
-    <section className="text-gray-400 bg-gray-800 body-font pt-24">
-      <div className="mx-0 md:mx-5 lg:mx-12 px-5 py-24 flex flex-wrap">
-        <div className="flex w-full mb-20 flex-wrap">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font text-white lg:w-1/3 lg:mb-0 mb-4">
+    <section className="body-font bg-gray-800 pt-24 text-gray-400">
+      <div className="mx-0 flex flex-wrap px-5 py-24 md:mx-5 lg:mx-12">
+        <div className="mb-20 flex w-full flex-wrap">
+          <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl lg:mb-0 lg:w-1/3">
             All Ready-To-Wear
           </h1>
-          <p className="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">
+          <p className="mx-auto text-base leading-relaxed lg:w-2/3 lg:pl-6">
             We put our distinctive and visionary mark on DripShop’s
             ready-to-wear. Our innovative designs create a complete contemporary
             wardrobe: from reimagined staples to unexpected silhouettes, from
@@ -16,11 +16,11 @@ const Directory = ({ categories }) => {
             creativity that (re)defines elegance for the 21st century folks.
           </p>
         </div>
-        <div className="flex flex-wrap w-full">
-          <div className="flex flex-wrap w-full lg:w-1/2">
+        <div className="flex w-full flex-wrap">
+          <div className="flex w-full flex-wrap lg:w-1/2">
             <CategoryItem index={0} categories={categories} />
           </div>
-          <div className="flex flex-wrap-reverse w-full lg:w-1/2">
+          <div className="flex w-full flex-wrap-reverse lg:w-1/2">
             <CategoryItem index={3} categories={categories} />
           </div>
         </div>

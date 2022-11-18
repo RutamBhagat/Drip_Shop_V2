@@ -33,9 +33,7 @@ const Home = () => {
       imageUrl: "https://source.unsplash.com/tmtizwShVRo",
     },
   ];
-  return (
-    <Directory categories={categories} />
-  );
+  return <Directory categories={categories} />;
 };
 
 export default Home;

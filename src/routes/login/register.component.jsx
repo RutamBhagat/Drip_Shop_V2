@@ -41,16 +41,16 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-gray-800 py-36 w-screen">
-      <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
-        <div className="flex rounded-2xl shadow-lg w-full sm:w-3/4 lg:max-w-5xl bg-gray-300 sm:mx-0">
-          <div className="flex flex-col w-full md:w-1/2 p-10 md:p-4 lg:p-10">
+    <div className="w-screen bg-gray-800 py-36">
+      <div className="flex h-full flex-1 flex-col items-center justify-center px-4 sm:px-0">
+        <div className="flex w-full rounded-2xl bg-gray-300 shadow-lg sm:mx-0 sm:w-3/4 lg:max-w-5xl">
+          <div className="flex w-full flex-col p-10 md:w-1/2 md:p-4 lg:p-10">
             <h1 className="text-4xl font-medium">Sign Up</h1>
             <p className="text-slate-500">Hi, Welcome 👋</p>
             <form onSubmit={handleSubmit} action="" className="mt-10 mb-5">
               <div className="flex flex-col space-y-5">
                 <label htmlFor="name">
-                  <p className="font-medium text-slate-700 pb-2">Name</p>
+                  <p className="pb-2 font-medium text-slate-700">Name</p>
                   <input
                     onChange={(event) => {
                       setDisplayName(event.target.value);
@@ -60,12 +60,12 @@ const Register = () => {
                     name="name"
                     type="text"
                     value={displayName}
-                    className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+                    className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
                     placeholder="Enter your name"
                   />
                 </label>
                 <label htmlFor="email">
-                  <p className="font-medium text-slate-700 pb-2">
+                  <p className="pb-2 font-medium text-slate-700">
                     Email address
                   </p>
                   <input
@@ -77,12 +77,12 @@ const Register = () => {
                     name="email"
                     type="email"
                     value={email}
-                    className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+                    className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
                     placeholder="Enter email address"
                   />
                 </label>
                 <label htmlFor="password">
-                  <p className="font-medium text-slate-700 pb-2">Password</p>
+                  <p className="pb-2 font-medium text-slate-700">Password</p>
                   <input
                     onChange={(event) => {
                       setPassword(event.target.value);
@@ -92,12 +92,12 @@ const Register = () => {
                     name="password"
                     type="password"
                     value={password}
-                    className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+                    className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
                     placeholder="Enter your password"
                   />
                 </label>
                 <label htmlFor="confirm-password">
-                  <p className="font-medium text-slate-700 pb-2">
+                  <p className="pb-2 font-medium text-slate-700">
                     Confirm Password
                   </p>
                   <input
@@ -109,13 +109,13 @@ const Register = () => {
                     name="confirm-password"
                     type="password"
                     value={confirmPassword}
-                    className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+                    className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
                     placeholder="Confirm your password"
                   />
                 </label>
                 <button
                   type="submit"
-                  className="w-full py-3 font-medium text-white bg-violet-800 hover:bg-violet-900 rounded-lg border-violet-800 hover:shadow inline-flex space-x-2 items-center justify-center"
+                  className="inline-flex w-full items-center justify-center space-x-2 rounded-lg border-violet-800 bg-violet-800 py-3 font-medium text-white hover:bg-violet-900 hover:shadow"
                 >
                   <span>Sign Up</span>
                   <svg
@@ -137,7 +137,7 @@ const Register = () => {
                   Already have an account?{" "}
                   <Link
                     to="/signin"
-                    className="text-violet-800 hover:text-violet-900 font-medium inline-flex space-x-1 items-center"
+                    className="inline-flex items-center space-x-1 font-medium text-violet-800 hover:text-violet-900"
                   >
                     <span>Sign In </span>
                     <span>
@@ -161,9 +161,13 @@ const Register = () => {
               </div>
             </form>
           </div>
-          <div className="hidden md:flex w-1/2 card-zoom">
+          <div className="card-zoom hidden w-1/2 md:flex">
             <div className="card-zoom-image bg-store2"></div>
-            <h1 className="card-zoom-text lg:text-5xl">DRIP SHOP</h1>
+            <h1 className="card-zoom-text text-center">
+              DRIP
+              <br />
+              SHOP
+            </h1>
           </div>
           {}
         </div>
