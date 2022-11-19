@@ -6,7 +6,7 @@ const HiddenMenu = () => {
   return (
     <div
       id="hidden-menu"
-      className="custom-gradient flex hidden h-[90vh] w-screen flex-col items-start justify-start p-5 pb-8 drop-shadow-md sm:hidden"
+      className="custom-gradient flex hidden h-[90vh] w-screen flex-col items-end justify-start p-5 pb-8 drop-shadow-md sm:hidden"
     >
       <Link className="text-md my-2" to="/">
         <div className="card-zoom mx-1 h-16 w-16 rounded-2xl bg-white bg-opacity-60 drop-shadow-md hover:bg-gray-300">

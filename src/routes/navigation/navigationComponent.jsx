@@ -18,22 +18,8 @@ const Navigation = () => {
               </h1>
             </Link>
           </div>
-
           <div>
             <HamburgerButtonComponent />
-            {
-              //   <div
-              // onClick={() => {
-              //   const hiddenMenu = document.querySelector("#hidden-menu");
-              //   hiddenMenu.classList.toggle("hidden");
-              // }}
-              //   className="hover:cursor-pointer sm:hidden"
-              // >
-              //   <span className="mb-1 block h-1 w-8 rounded-full bg-gradient-to-tr from-violet-700 to-gray-900"></span>
-              //   <span className="mb-1 block h-1 w-8 rounded-full bg-gradient-to-tr from-violet-700 to-gray-900"></span>
-              //   <span className="mb-1 block h-1 w-8 rounded-full bg-gradient-to-tr from-violet-700 to-gray-900"></span>
-              // </div>
-            }
             <div className="flex items-center">
               <div className="hidden items-center space-x-1 sm:flex md:space-x-4">
                 <Link
