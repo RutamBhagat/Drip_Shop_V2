@@ -1,76 +1,78 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  signInWithGooglePopup,
+  createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 
-const Signin = () => {
+const Register = () => {
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
-  };
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (password !== confirmPassword) {
+      alert("passwords do not match");
+      return;
+    }
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+      await createUserDocumentFromAuth(user, {
+        displayName,
+      });
+      setDisplayName("");
       setEmail("");
       setPassword("");
+      setConfirmPassword("");
     } catch (error) {
-      if (
-        error.code === "auth/wrong-password" ||
-        error.code === "auth/user-not-found"
-      ) {
-        alert("Incorrect email or password");
+      if (error.code === "auth/email-already-in-use") {
+        alert("Cannot create user, email already in use");
       } else {
-        console.log("User log in encountered an error");
+        console.log("User creation encountered an error");
         console.error(error);
       }
     }
   };
 
   return (
-    <div className="w-screen bg-gray-800 py-36 ">
+    <div className="w-screen bg-gray-800 py-36">
       <div className="flex h-full flex-1 flex-col items-center justify-center px-4 sm:px-0">
-        <div className="flex w-full rounded-2xl bg-gray-300 shadow-lg sm:mx-0 sm:w-3/4 lg:max-w-5xl">
-          <div className="flex w-full flex-col p-10 md:w-1/2 md:p-4 lg:p-10">
-            <h1 className="text-4xl font-medium">Login</h1>
-            <p className="text-slate-500">Hi, Welcome back 👋</p>
-            <div className="my-5">
-              <button
-                type="button"
-                onClick={signInWithGoogle}
-                className="my-3 flex w-full items-center justify-center space-x-2 rounded-lg border border-slate-200 py-3 text-center text-slate-700 transition duration-150 hover:border-slate-400 hover:text-slate-900 hover:shadow"
-              >
-                <img
-                  src="https://www.svgrepo.com/show/355037/google.svg"
-                  className="h-6 w-6"
-                  alt=""
-                />{" "}
-                <span>Login with Google</span>
-              </button>
-            </div>
+        <div className="flex h-[800px] w-full rounded-2xl bg-gray-300 shadow-lg sm:mx-0 sm:w-3/4 md:w-5/6 lg:max-w-5xl">
+          <div className="flex w-full flex-col justify-center px-10 md:w-1/2 md:px-4 lg:px-10">
+            <h1 className="text-4xl font-medium">Sign Up</h1>
+            <p className="text-slate-500">Hi, Welcome 👋</p>
             <form onSubmit={handleSubmit} action="" className="mt-10 mb-5">
               <div className="flex flex-col space-y-5">
+                <label htmlFor="name">
+                  <p className="pb-2 font-medium text-slate-700">Name</p>
+                  <input
+                    onChange={(event) => {
+                      setDisplayName(event.target.value);
+                    }}
+                    required
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={displayName}
+                    className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
+                    placeholder="Enter your name"
+                  />
+                </label>
                 <label htmlFor="email">
                   <p className="pb-2 font-medium text-slate-700">
                     Email address
                   </p>
                   <input
-                    required
                     onChange={(event) => {
                       setEmail(event.target.value);
                     }}
+                    required
                     id="email"
                     name="email"
                     type="email"
@@ -82,10 +84,10 @@ const Signin = () => {
                 <label htmlFor="password">
                   <p className="pb-2 font-medium text-slate-700">Password</p>
                   <input
-                    required
                     onChange={(event) => {
                       setPassword(event.target.value);
                     }}
+                    required
                     id="password"
                     name="password"
                     type="password"
@@ -94,8 +96,28 @@ const Signin = () => {
                     placeholder="Enter your password"
                   />
                 </label>
-                <button className="inline-flex w-full items-center justify-center space-x-2 rounded-lg border-violet-800 bg-violet-800 py-3 font-medium text-white hover:bg-violet-900 hover:shadow">
-                  <span>Sign In</span>
+                <label htmlFor="confirm-password">
+                  <p className="pb-2 font-medium text-slate-700">
+                    Confirm Password
+                  </p>
+                  <input
+                    onChange={(event) => {
+                      setConfirmPassword(event.target.value);
+                    }}
+                    required
+                    id="confirm-password"
+                    name="confirm-password"
+                    type="password"
+                    value={confirmPassword}
+                    className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
+                    placeholder="Confirm your password"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center space-x-2 rounded-lg border-violet-800 bg-violet-800 py-3 font-medium text-white hover:bg-violet-900 hover:shadow"
+                >
+                  <span>Sign Up</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -112,12 +134,12 @@ const Signin = () => {
                   </svg>
                 </button>
                 <p className="text-center">
-                  Not registered yet?{" "}
+                  Already have an account?{" "}
                   <Link
-                    to="/register"
+                    to="/signin"
                     className="inline-flex items-center space-x-1 font-medium text-violet-800 hover:text-violet-900"
                   >
-                    <span>Register now </span>
+                    <span>Sign In </span>
                     <span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +162,7 @@ const Signin = () => {
             </form>
           </div>
           <div className="card-zoom hidden w-1/2 md:flex">
-            <div className="card-zoom-image bg-store1"></div>
+            <div className="card-zoom-image bg-store2"></div>
             <h1 className="card-zoom-text text-center">
               DRIP
               <br />
@@ -154,4 +176,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Register;

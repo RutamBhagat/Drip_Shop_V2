@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./routes/home/homeComponent";
 import Navigation from "./routes/navigation/navigationComponent";
 import Shop from "./routes/shop/shopComponent";
-import Signin from "./routes/login/signin.components";
-import Register from "./routes/login/register.component";
+import Signin from "./routes/authentication/signin.components";
+import Register from "./routes/authentication/register.component";
 
 const App = () => {
   return (
