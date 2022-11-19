@@ -11,7 +11,7 @@ const HamburgerButtonComponent = () => {
 
   return (
     <button
-      className="group flex h-12 w-12 flex-col items-center justify-center rounded sm:hidden"
+      className="group flex h-12 w-12 flex-col items-center justify-center rounded normal:hidden"
       onClick={() => {
         showHiddenMenu();
         setIsOpen(!isOpen);

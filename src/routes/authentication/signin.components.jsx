@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../contexts/user.context";
 import { Link } from "react-router-dom";
 import {
   signInWithGooglePopup,
@@ -10,6 +11,8 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
@@ -19,11 +22,11 @@ const Signin = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
-      console.log(response);
+      setCurrentUser(user);
       setEmail("");
       setPassword("");
     } catch (error) {
