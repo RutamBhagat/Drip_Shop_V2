@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { Link } from "react-router-dom";
 import "./hidden-menu.styles.scss";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
-const HiddenMenu = ({ signOutHandler }) => {
+const HiddenMenu = () => {
   const { currentUser } = useContext(UserContext);
 
   return (
@@ -40,7 +41,7 @@ const HiddenMenu = ({ signOutHandler }) => {
         </div>
       </Link>
       {currentUser ? (
-        <Link onClick={signOutHandler} className="text-md my-2" to="/">
+        <Link onClick={signOutUser} className="text-md my-2" to="/">
           <div className="card-zoom mx-1 h-16 w-16 rounded-2xl bg-red-600 drop-shadow-md hover:bg-red-500">
             <h1 className="card-zoom-text text-2xl text-gray-300 opacity-100 hover:text-gray-900">
               <i className="fa-solid fa-right-to-bracket"></i>
