@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   createAuthUserWithEmailAndPassword,
@@ -11,8 +10,6 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const { setCurrentUser } = useContext(UserContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -26,7 +23,6 @@ const Register = () => {
         email,
         password
       );
-      setCurrentUser(user);
       await createUserDocumentFromAuth(user, {
         displayName,
       });

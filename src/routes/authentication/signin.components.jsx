@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   signInWithGooglePopup,
@@ -11,11 +10,8 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setCurrentUser } = useContext(UserContext);
-
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (event) => {
@@ -26,7 +22,6 @@ const Signin = () => {
         email,
         password
       );
-      setCurrentUser(user);
       setEmail("");
       setPassword("");
     } catch (error) {

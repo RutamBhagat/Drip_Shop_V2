@@ -3,9 +3,13 @@ import { UserContext } from "../../contexts/user.context";
 import { Outlet, Link } from "react-router-dom";
 import HamburgerButtonComponent from "../../components/hamburger-button/hamburger-button.component";
 import HiddenMenu from "../../components/hidden-menu/hidden-menu.component";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const signOutHandler = async () => {
+    await signOutUser();
+  };
 
   return (
     <Fragment>
@@ -47,8 +51,11 @@ const Navigation = () => {
                 <i className="fa-solid fa-cart-shopping px-1"></i>
               </h1>
               {currentUser ? (
-                <Link to="/signout">
-                  <h1 className="text-text-gray-600 rounded bg-gradient-to-tr from-violet-700 to-gray-900 py-2 px-4 text-white hover:cursor-pointer">
+                <Link to="/">
+                  <h1
+                    onClick={signOutHandler}
+                    className="text-text-gray-600 rounded bg-gradient-to-tr from-violet-700 to-gray-900 py-2 px-4 text-white hover:cursor-pointer"
+                  >
                     SIGN OUT
                   </h1>
                 </Link>
@@ -62,7 +69,7 @@ const Navigation = () => {
             </div>
           </div>
         </div>
-        <HiddenMenu />
+        <HiddenMenu signOutHandler={signOutHandler} />
       </nav>
       <Outlet />
     </Fragment>

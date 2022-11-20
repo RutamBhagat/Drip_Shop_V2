@@ -3,7 +3,7 @@ import { UserContext } from "../../contexts/user.context";
 import { Link } from "react-router-dom";
 import "./hidden-menu.styles.scss";
 
-const HiddenMenu = () => {
+const HiddenMenu = ({ signOutHandler }) => {
   const { currentUser } = useContext(UserContext);
 
   return (
@@ -39,19 +39,23 @@ const HiddenMenu = () => {
           </h1>
         </div>
       </Link>
-      <Link className="text-md my-2" to="/signin">
-        <div
-          className={`card-zoom mx-1 h-16 w-16 rounded-2xl ${
-            currentUser
-              ? "bg-red-600 drop-shadow-md hover:bg-red-500"
-              : "bg-lime-600 drop-shadow-md hover:bg-lime-400"
-          }`}
-        >
-          <h1 className="card-zoom-text text-2xl text-gray-300 opacity-100 hover:text-gray-900">
-            <i className="fa-solid fa-right-to-bracket"></i>
-          </h1>
-        </div>
-      </Link>
+      {currentUser ? (
+        <Link onClick={signOutHandler} className="text-md my-2" to="/">
+          <div className="card-zoom mx-1 h-16 w-16 rounded-2xl bg-red-600 drop-shadow-md hover:bg-red-500">
+            <h1 className="card-zoom-text text-2xl text-gray-300 opacity-100 hover:text-gray-900">
+              <i className="fa-solid fa-right-to-bracket"></i>
+            </h1>
+          </div>
+        </Link>
+      ) : (
+        <Link className="text-md my-2" to="/signin">
+          <div className="card-zoom mx-1 h-16 w-16 rounded-2xl bg-lime-600 drop-shadow-md hover:bg-lime-400">
+            <h1 className="card-zoom-text text-2xl text-gray-300 opacity-100 hover:text-gray-900">
+              <i className="fa-solid fa-right-to-bracket"></i>
+            </h1>
+          </div>
+        </Link>
+      )}
     </div>
   );
 };
