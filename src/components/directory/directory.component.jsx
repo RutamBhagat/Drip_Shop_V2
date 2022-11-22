@@ -1,5 +1,5 @@
 import CategoryItem from "../category-item/category-item.component";
-import "./directory.component.css"
+import "./directory.styles.css"
 
 const Directory = ({ categories }) => {
   return (
