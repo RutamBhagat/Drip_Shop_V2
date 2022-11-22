@@ -4,6 +4,6 @@
 
 @layer utilities {
   .genericHamburgerLine {
-    @apply h-1 w-6 transform rounded-full bg-gradient-to-tr from-violet-700 to-gray-900 transition duration-300 ease-in-out;
+    @apply h-1 w-6 transform rounded-full bg-white transition duration-300 ease-in-out;
   }
 }

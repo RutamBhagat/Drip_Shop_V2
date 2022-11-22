@@ -38,7 +38,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="w-screen bg-gray-800 py-36 ">
+    <div className="w-screen bg-gray-900 py-36 ">
       <div className="flex h-full flex-1 flex-col items-center justify-center px-4 sm:px-0">
         <div className="flex h-[800px] w-full rounded-2xl bg-gray-300 shadow-lg sm:mx-0 sm:w-3/4 md:w-5/6 lg:max-w-5xl">
           <div className="flex w-full flex-col justify-center px-10 md:w-1/2 md:px-4 lg:px-10">

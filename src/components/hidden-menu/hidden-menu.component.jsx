@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { Link } from "react-router-dom";
-import "./hidden-menu.styles.scss";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const HiddenMenu = () => {
@@ -10,7 +9,7 @@ const HiddenMenu = () => {
   return (
     <div
       id="hidden-menu"
-      className="custom-gradient flex hidden h-[90vh] w-screen flex-col items-end justify-start p-5 pb-8 drop-shadow-md normal:hidden"
+      className="flex hidden h-[90vh] w-screen flex-col items-end justify-start p-5 pb-8 drop-shadow-md normal:hidden"
     >
       <Link className="text-md my-2" to="/">
         <div className="card-zoom mx-1 h-16 w-16 rounded-2xl bg-white drop-shadow-md hover:bg-gray-300">

@@ -2,13 +2,14 @@ import CategoryItem from "../category-item/category-item.component";
 
 const Directory = ({ categories }) => {
   return (
-    <section className="body-font bg-gray-800 pt-24 text-gray-400">
+    <section className="body-font bg-gray-900 md:bg-transparent pt-24 text-gray-500">
+      <div className="hidden md:block fixed top-0 left-0 bottom-0 -z-50 w-[50vw] h-full bg-gray-900"></div>
       <div className="mx-0 flex flex-wrap px-5 py-24 md:mx-5 lg:mx-12">
         <div className="mb-20 flex w-full flex-wrap">
-          <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl lg:mb-0 lg:w-1/3">
+          <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl lg:mb-0 md:w-1/2">
             All Ready-To-Wear
           </h1>
-          <p className="mx-auto text-base leading-relaxed lg:w-2/3 lg:pl-6">
+          <p className="mx-auto text-base leading-relaxed md:w-1/2 md:pl-6">
             We put our distinctive and visionary mark on DripShop’s
             ready-to-wear. Our innovative designs create a complete contemporary
             wardrobe: from reimagined staples to unexpected silhouettes, from

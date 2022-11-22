@@ -5,7 +5,7 @@ const CategoryItem = ({ index, categories }) => {
   return (
     <Fragment>
       <div
-        className="image-container tag-center md:tag-left small-container-left"
+        className="image-container tag-center md:tag-left small-container-left rounded-md md:rounded-bl-none"
         style={{
           backgroundImage: `url(${categories[index].imageUrl})`,
         }}
@@ -16,7 +16,7 @@ const CategoryItem = ({ index, categories }) => {
         </div>
       </div>
       <div
-        className="image-container tag-center md:tag-right small-container-right"
+        className="image-container tag-center md:tag-right small-container-right rounded-md md:rounded-br-none"
         style={{
           backgroundImage: `url(${categories[index + 1].imageUrl})`,
         }}
@@ -29,7 +29,7 @@ const CategoryItem = ({ index, categories }) => {
         </div>
       </div>
       <div
-        className="image-container tag-center large-container"
+        className="image-container tag-center large-container rounded-md"
         style={{
           backgroundImage: `url(${categories[index + 2].imageUrl})`,
         }}
