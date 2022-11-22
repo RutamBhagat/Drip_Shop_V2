@@ -1,0 +1,14 @@
+.custom-bg-home {
+  background: linear-gradient(
+    to right,
+    rgb(17, 24, 39) 0%,
+    rgb(17, 24, 39) 50%,
+    white 50%,
+    white 100%
+  );
+}
+@media (width <= 768px) {
+  .custom-bg-home {
+    background: rgb(17, 24, 39);
+  }
+}

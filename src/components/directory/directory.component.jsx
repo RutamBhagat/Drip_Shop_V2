@@ -1,9 +1,9 @@
 import CategoryItem from "../category-item/category-item.component";
+import "./directory.component.css"
 
 const Directory = ({ categories }) => {
   return (
-    <section className="body-font bg-gray-900 md:bg-transparent pt-24 text-gray-500">
-      <div className="hidden md:block fixed top-0 left-0 bottom-0 -z-50 w-[50vw] h-full bg-gray-900"></div>
+    <section className="body-font custom-bg-home pt-24 text-gray-500">
       <div className="mx-0 flex flex-wrap px-5 py-24 md:mx-5 lg:mx-12">
         <div className="mb-20 flex w-full flex-wrap">
           <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl lg:mb-0 md:w-1/2">
