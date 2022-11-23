@@ -145,7 +145,6 @@ const Signin = () => {
               SHOP
             </h1>
           </div>
-          {}
         </div>
       </div>
     </div>

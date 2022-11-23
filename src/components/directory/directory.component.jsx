@@ -18,10 +18,10 @@ const Directory = ({ categories }) => {
           </p>
         </div>
         <div className="flex w-full flex-wrap">
-          <div className="flex w-full flex-wrap lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <CategoryItem index={0} categories={categories} />
           </div>
-          <div className="flex w-full flex-wrap-reverse lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <CategoryItem index={3} categories={categories} />
           </div>
         </div>
