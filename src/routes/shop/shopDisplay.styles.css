@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.custom-gradient-shopSwiper {
+.custom-gradient-shopDisplay {
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 1) 0%,
@@ -22,7 +22,7 @@
   );
 }
 
-.custom-gradient-shopSwiper:hover {
+.custom-gradient-shopDisplay:hover {
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.7) 0%,

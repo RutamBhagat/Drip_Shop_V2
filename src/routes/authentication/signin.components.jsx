@@ -39,7 +39,6 @@ const Signin = () => {
 
   return (
     <Fragment>
-      {" "}
       <div className="flex w-full flex-col justify-center px-10 md:w-1/2 md:px-4 lg:px-10">
         <h1 className="text-4xl font-medium">Login</h1>
         <p className="text-slate-500">Hi, Welcome back 👋</p>
