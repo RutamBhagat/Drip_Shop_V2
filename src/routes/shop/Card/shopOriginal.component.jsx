@@ -1,57 +1,17 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../../../contexts/products.context";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper";
 
 const ShopOriginal = ({ name, index }) => {
   const { products } = useContext(ProductsContext);
   return (
-    <div className="py-[15vh] flex flex-col items-center justify-center px-12">
-      <div class="flex w-[300px] items-center justify-between">
-        <i class="fa-solid fa-left-long text-white"></i>
-        <h1 class="text-white">SWIPE FOR MORE</h1>
-        <i class="fa-solid fa-right-long text-white"></i>
-      </div>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        pagination={{
-          clickable: true,
-        }}
-        breakpoints={{
-          "@0.00": {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          "@0.75": {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          "@1.00": {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          "@1.50": {
-            slidesPerView: 4,
-            spaceBetween: 50,
-          },
-        }}
-        modules={[Pagination]}
-        className="mySwiper mt-3 pt-0"
-      >
+    <div className="grid px-4 py-[15vh]">
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
         {products &&
           products.map((product) => {
             return (
-              <SwiperSlide
+              <div
                 key={product.id}
-                className="h-[500px] w-[300px] rounded-xl border border-black bg-cover bg-center bg-no-repeat drop-shadow-lg sm:h-[550px] sm:w-[350px] md:h-[600px] md:w-[400px]"
+                className="h-[500px] rounded-xl border border-black bg-cover bg-center bg-no-repeat drop-shadow-lg sm:h-[550px] md:h-[600px]"
                 style={{
                   backgroundImage: `url(${product.imageUrl})`,
                 }}
@@ -61,10 +21,6 @@ const ShopOriginal = ({ name, index }) => {
                     <h1 class="text-2xl font-bold text-gray-900">
                       {product.name}
                     </h1>
-                    <p class="mt-2 text-sm text-gray-600">
-                      You can&#x27;t buy your future, but you can do it. Money
-                      is nothing, you&#x27;r everything.
-                    </p>
                     <div class="item-center mt-2 flex">
                       <svg
                         class="h-5 w-5 fill-current text-gray-700"
@@ -105,10 +61,10 @@ const ShopOriginal = ({ name, index }) => {
                     </div>
                   </div>
                 </div>
-              </SwiperSlide>
+              </div>
             );
           })}
-      </Swiper>
+      </div>
     </div>
   );
 };
