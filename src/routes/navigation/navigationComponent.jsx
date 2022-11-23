@@ -61,7 +61,7 @@ const Navigation = () => {
                   </h1>
                 </Link>
               ) : (
-                <Link to="/signin">
+                <Link to="/authentication">
                   <h1 className="text-text-gray-600 rounded bg-indigo-700 py-2 px-4 font-semibold text-white hover:cursor-pointer">
                     LOG IN
                   </h1>

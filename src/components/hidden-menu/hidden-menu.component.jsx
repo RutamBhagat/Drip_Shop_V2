@@ -57,7 +57,7 @@ const HiddenMenu = () => {
           </div>
         </Link>
       ) : (
-        <Link className="text-md my-2 ml-2 mt-auto flex" to="/signin">
+        <Link className="text-md my-2 ml-2 mt-auto flex" to="/authentication">
           <div className="card-zoom mr-3 h-16 w-16 rounded-2xl bg-lime-600 drop-shadow-md hover:bg-lime-400">
             <h1 className="card-zoom-text text-2xl text-gray-300 opacity-100 hover:text-gray-900">
               <i className="fa-solid fa-right-to-bracket"></i>

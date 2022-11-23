@@ -4,7 +4,8 @@ import Navigation from "./routes/navigation/navigationComponent";
 import ShopSwiper from "./routes/shop/shopSwiper.component";
 import Signin from "./routes/authentication/signin.components";
 import Register from "./routes/authentication/register.component";
-import ShopOriginal from "./routes/shop/Card/shopOriginal.component"
+import ShopOriginal from "./routes/shop/Card/shopOriginal.component";
+import Authentication from "./routes/authentication/authentication.component";
 
 const App = () => {
   return (
@@ -13,8 +14,10 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="shop" element={<ShopSwiper />} />
         <Route path="innershop" element={<ShopOriginal />} />
-        <Route path="signin" element={<Signin />} />
-        <Route path="register" element={<Register />} />
+        <Route path="authentication" element={<Authentication />}>
+          <Route index element={<Signin />} />
+          <Route path="register" element={<Register />} />
+        </Route>
       </Route>
     </Routes>
   );
