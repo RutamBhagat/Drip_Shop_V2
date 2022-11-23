@@ -1,56 +1,64 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const CategoryItem = ({ index, categories }) => {
   return (
     <Fragment>
       <div class="grid-row-reverse grid w-full">
         <div class="grid grid-cols-1 gap-4 p-4 normal:grid-cols-2">
-          <div className={`card-zoom border border-white flex h-[200px] w-[100%] rounded-lg normal:rounded-bl-none`}>
+          <Link
+            to="/shop/hats"
+            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-white normal:rounded-bl-none`}
+          >
             <div
-              className="absolute h-full w-full border border-black rounded-lg transform bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+              className="absolute h-full w-full transform rounded-lg border border-black bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
               style={{
                 backgroundImage: `url(${categories[index].imageUrl})`,
               }}
             ></div>
-            <div className="absolute rounded-t-3xl hover:cursor-pointer border border-gray-300 hover:opacity-75 normal:rounded-tl-none bg-black bg-opacity-70 bottom-0 normal:left-0 py-1 w-[197px] text-center">
-              <h2 className="text-white font-bold text-3xl">
+            <div className="absolute bottom-0 w-[197px] rounded-t-3xl border border-gray-300 bg-black bg-opacity-70 py-1 text-center hover:cursor-pointer hover:opacity-75 normal:left-0 normal:rounded-tl-none">
+              <h2 className="text-3xl font-bold text-white">
                 {categories[index].title.toUpperCase()}
               </h2>
-              <p className="text-xl text-gray-400" >Shop Now</p>
+              <p className="text-xl text-gray-400">Shop Now</p>
             </div>
-          </div>
-          <div className={`card-zoom border border-white flex h-[200px] w-[100%] rounded-lg normal:rounded-br-none`}>
+          </Link>
+          <Link
+            to="/shop/hats"
+            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-white normal:rounded-br-none`}
+          >
             <div
-              className="absolute h-full w-full border border-black rounded-lg transform bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+              className="absolute h-full w-full transform rounded-lg border border-black bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
               style={{
                 backgroundImage: `url(${categories[index + 1].imageUrl})`,
               }}
             ></div>
-            <div className="absolute rounded-t-3xl hover:cursor-pointer border border-gray-300 hover:opacity-75 normal:rounded-tr-none bg-black bg-opacity-70 bottom-0 normal:right-0 py-1 w-[197px] text-center">
-              <h2 className="text-white font-bold text-3xl">
+            <div className="absolute bottom-0 w-[197px] rounded-t-3xl border border-gray-300 bg-black bg-opacity-70 py-1 text-center hover:cursor-pointer hover:opacity-75 normal:right-0 normal:rounded-tr-none">
+              <h2 className="text-3xl font-bold text-white">
                 {categories[index + 1].title.toUpperCase()}
               </h2>
-              <p className="text-xl text-gray-400" >Shop Now</p>
+              <p className="text-xl text-gray-400">Shop Now</p>
             </div>
-          </div>
-          <div
-            className={`card-zoom border border-white flex h-[200px] w-[100%] rounded-lg normal:col-span-2 normal:h-[300px] ${
+          </Link>
+          <Link
+            to="/shop/hats"
+            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-white normal:col-span-2 normal:h-[300px] ${
               index === 3 ? "order-first" : ""
             }`}
           >
             <div
-              className="absolute h-full w-full border border-black rounded-lg transform bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+              className="absolute h-full w-full transform rounded-lg border border-black bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
               style={{
                 backgroundImage: `url(${categories[index + 2].imageUrl})`,
               }}
             ></div>
-            <div className="absolute rounded-t-3xl hover:cursor-pointer border border-gray-300 hover:opacity-75 bg-black bg-opacity-70 bottom-0 py-1 w-[197px] text-center">
-              <h2 className="text-white font-bold text-3xl">
+            <div className="absolute bottom-0 w-[197px] rounded-t-3xl border border-gray-300 bg-black bg-opacity-70 py-1 text-center hover:cursor-pointer hover:opacity-75">
+              <h2 className="text-3xl font-bold text-white">
                 {categories[index + 2].title.toUpperCase()}
               </h2>
-              <p className="text-xl text-gray-400" >Shop Now</p>
+              <p className="text-xl text-gray-400">Shop Now</p>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </Fragment>
