@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useContext } from "react";
+import { ProductsContext } from "../../../contexts/products.context";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,11 +10,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 
-import PRODUCTS from "../../../shop-data.json";
-
 const ShopOriginal = ({ name, index }) => {
+  const { products } = useContext(ProductsContext);
   return (
-    <div className="flex h-screen flex-col items-center justify-center px-12">
+    <div className="py-[15vh] flex flex-col items-center justify-center px-12">
       <div class="flex w-[300px] items-center justify-between">
         <i class="fa-solid fa-left-long text-white"></i>
         <h1 class="text-white">SWIPE FOR MORE</h1>
@@ -46,8 +46,8 @@ const ShopOriginal = ({ name, index }) => {
         modules={[Pagination]}
         className="mySwiper mt-3 pt-0"
       >
-        {PRODUCTS &&
-          PRODUCTS.map((product) => {
+        {products &&
+          products.map((product) => {
             return (
               <SwiperSlide
                 key={product.id}
@@ -56,7 +56,7 @@ const ShopOriginal = ({ name, index }) => {
                   backgroundImage: `url(${product.imageUrl})`,
                 }}
               >
-                <div className="flex h-[100%] w-[100%] items-end justify-center rounded-xl border border-white hover:bg-black hover:bg-opacity-25">
+                <div className="custom-gradient-shopSwiper flex h-[100%] w-[100%] items-end justify-center rounded-xl border border-white">
                   <div className="w-[100%] rounded-b-xl bg-white px-3 py-3">
                     <h1 class="text-2xl font-bold text-gray-900">
                       {product.name}

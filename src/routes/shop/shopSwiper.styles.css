@@ -13,3 +13,19 @@
   display: block;
   width: 100%;
 }
+
+.custom-gradient-shopSwiper {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+
+.custom-gradient-shopSwiper:hover {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}

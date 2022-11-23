@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 const shopSwiper = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center my-[15vh]">
       <Swiper
         effect={"coverflow"}
         grabCursor={false}
@@ -30,7 +30,7 @@ const shopSwiper = () => {
         }}
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
-        className="mySwiper pt-24"
+        className="mySwiper"
       >
         <SwiperSlide
           className="border border-black drop-shadow-lg h-[500px] w-[300px] rounded-xl bg-cover bg-center bg-no-repeat sm:h-[550px] sm:w-[350px] md:h-[600px] md:w-[400px]"
@@ -39,7 +39,7 @@ const shopSwiper = () => {
           }}
         >
           <Link to="/innershop">
-            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl hover:bg-black hover:bg-opacity-25">
+            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl custom-gradient-shopSwiper">
               <h1 className="py-10 pl-10 text-5xl font-bold text-white">
                 WOMENS
               </h1>
@@ -53,7 +53,7 @@ const shopSwiper = () => {
           }}
         >
           <Link to="/innershop">
-            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl hover:bg-black hover:bg-opacity-25">
+            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl custom-gradient-shopSwiper">
               <h1 className="py-10 pl-10 text-5xl font-bold text-white">
                 MENS
               </h1>
@@ -67,7 +67,7 @@ const shopSwiper = () => {
           }}
         >
           <Link to="/innershop">
-            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl hover:bg-black hover:bg-opacity-25">
+            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl custom-gradient-shopSwiper">
               <h1 className="py-10 pl-10 text-5xl font-bold text-white">
                 HATS
               </h1>
@@ -81,7 +81,7 @@ const shopSwiper = () => {
           }}
         >
           <Link to="/innershop">
-            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl hover:bg-black hover:bg-opacity-25">
+            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl custom-gradient-shopSwiper">
               <h1 className="py-10 pl-10 text-5xl font-bold text-white">
                 SUITS
               </h1>
@@ -95,7 +95,7 @@ const shopSwiper = () => {
           }}
         >
           <Link to="/innershop">
-            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl hover:bg-black hover:bg-opacity-25">
+            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl custom-gradient-shopSwiper">
               <h1 className="py-10 pl-10 text-5xl font-bold text-white">
                 JACKETS
               </h1>
@@ -109,7 +109,7 @@ const shopSwiper = () => {
           }}
         >
           <Link to="/innershop">
-            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl hover:bg-black hover:bg-opacity-25">
+            <div className="border border-white flex h-[100%] w-[100%] items-end justify-start rounded-xl custom-gradient-shopSwiper">
               <h1 className="py-10 pl-10 text-5xl font-bold text-white">
                 SNEAKERS
               </h1>
