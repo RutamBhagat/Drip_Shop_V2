@@ -9,131 +9,131 @@ const QuickCheckout = () => {
     >
       <div className="flex h-full w-full flex-col">
         <div className="h-4/5 w-full overflow-y-scroll">
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
-          <div class="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
+          <div className="m-1 flex max-w-md overflow-hidden rounded-lg shadow-lg">
             <div
-              class="w-1/3 bg-cover"
+              className="w-1/3 bg-cover"
               style={{
                 backgroundImage:
                   'url("https://images.unsplash.com/photo-1494726161322-5360d4d0eeae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")',
               }}
             ></div>
-            <div class="w-2/3 p-4 md:p-4">
-              <h1 class="text-2xl font-bold text-gray-700">Backpack</h1>
+            <div className="w-2/3 p-4 md:p-4">
+              <h1 className="text-2xl font-bold text-gray-700">Backpack</h1>
               <div className="mt-2 flex justify-between">
                 <h1 className="font-semibold text-gray-700">Qty: 2</h1>
-                <h1 class="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
+                <h1 className="text-lg font-bold text-gray-700 md:text-xl">$220</h1>
               </div>
             </div>
           </div>
