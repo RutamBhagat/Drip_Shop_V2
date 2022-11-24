@@ -5,6 +5,8 @@ const HamburgerButtonComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const showHiddenMenu = () => {
+    const navBar = document.querySelector("#nav-bar")
+    navBar.classList.toggle("bottom-0")
     const hiddenMenu = document.querySelector("#hidden-menu");
     hiddenMenu.classList.toggle("hidden");
   };
