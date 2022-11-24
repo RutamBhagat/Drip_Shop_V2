@@ -13,7 +13,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "sass": "^1.56.1",
     "shortid": "^2.2.16",
     "swiper": "^8.4.5"
   },

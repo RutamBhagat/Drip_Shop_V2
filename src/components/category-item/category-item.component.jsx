@@ -8,10 +8,10 @@ const CategoryItem = ({ index, categories }) => {
         <div class="grid grid-cols-1 gap-4 p-4 normal:grid-cols-2">
           <Link
             to="/shop/hats"
-            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-white`}
+            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black`}
           >
             <div
-              className="absolute h-full w-full transform rounded-lg border border-black bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+              className="absolute h-full w-full transform rounded-lg border border-white bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
               style={{
                 backgroundImage: `url(${categories[index].imageUrl})`,
               }}
@@ -25,10 +25,10 @@ const CategoryItem = ({ index, categories }) => {
           </Link>
           <Link
             to="/shop/hats"
-            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-white`}
+            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black`}
           >
             <div
-              className="absolute h-full w-full transform rounded-lg border border-black bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+              className="absolute h-full w-full transform rounded-lg border border-white bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
               style={{
                 backgroundImage: `url(${categories[index + 1].imageUrl})`,
               }}
@@ -43,12 +43,12 @@ const CategoryItem = ({ index, categories }) => {
 
           <Link
             to="/shop/hats"
-            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-white normal:col-span-2 normal:h-[300px] ${
+            className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black normal:col-span-2 normal:h-[300px] ${
               index === 3 ? "order-first" : ""
             }`}
           >
             <div
-              className="absolute h-full w-full transform rounded-lg border border-black bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+              className="absolute h-full w-full transform rounded-lg border border-white bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
               style={{
                 backgroundImage: `url(${categories[index + 2].imageUrl})`,
               }}

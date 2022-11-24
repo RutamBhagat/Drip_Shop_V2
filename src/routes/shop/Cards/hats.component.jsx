@@ -19,7 +19,7 @@ const Hats = () => {
                   backgroundImage: `url(${product.imageUrl})`,
                 }}
               ></div>
-              <div className="absolute bottom-0 w-[80%] rounded-xl bg-white px-3 py-3">
+              <div className="absolute bottom-0 w-[80%] rounded-xl border border-gray-700 bg-white px-3 py-3">
                 <h1 className="text-2xl font-bold text-gray-900">
                   {product.name}
                 </h1>

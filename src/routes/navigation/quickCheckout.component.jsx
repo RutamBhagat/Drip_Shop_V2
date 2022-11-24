@@ -144,7 +144,7 @@ const QuickCheckout = () => {
             <h2 className="font-bold text-gray-900">$ 2000</h2>
           </div>
           <button className="text-md mt-5 w-full bg-gray-900 py-2 text-gray-300">
-            CHECKOUT
+            {`CHECKOUT (5)`}
           </button>
         </div>
       </div>

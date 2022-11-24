@@ -4,7 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 import HamburgerButtonComponent from "../../components/hamburger-button/hamburger-button.component";
 import HiddenMenu from "../../components/hidden-menu/hidden-menu.component";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import "./navigation.styles.scss";
+import "./navigation.styles.css";
 import ItemsInCart from "./itemsInCart.components";
 import QuickCheckout from "./quickCheckout.component";
 
