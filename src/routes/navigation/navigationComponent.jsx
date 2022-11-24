@@ -5,9 +5,16 @@ import HamburgerButtonComponent from "../../components/hamburger-button/hamburge
 import HiddenMenu from "../../components/hidden-menu/hidden-menu.component";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./navigation.styles.scss";
+import ItemsInCart from "./itemsInCart.components";
+import QuickCheckout from "./quickCheckout.component";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+
+  const handleQuickCheckout = () => {
+    const quickCheckout = document.querySelector("#quick-checkout");
+    quickCheckout.classList.toggle("hidden");
+  };
 
   return (
     <Fragment>
@@ -23,13 +30,14 @@ const Navigation = () => {
                 DripShop
               </h1>
             </Link>
-            <Link className="normal:hidden" to="/">
-              <div className="card-zoom h-12 w-12 rounded-full bg-white drop-shadow-md hover:bg-gray-300">
-                <h1 className="card-zoom-text text-sm text-gray-700 opacity-100 hover:text-violet-800">
-                  <i className="fa-solid fa-cart-shopping"></i>
-                </h1>
-              </div>
-            </Link>
+            <button
+              onClick={handleQuickCheckout}
+              className="hover:text-violet-900 relative h-12 w-12 rounded-full border-2 border-transparent bg-white text-xl text-gray-800 transition duration-150 ease-in-out normal:hidden"
+              aria-label="Cart"
+            >
+              <i className="fa-solid fa-cart-shopping"></i>
+              <ItemsInCart checkoutArr={[11]} />
+            </button>
             <div className="ml-auto hidden items-center space-x-8 text-lg normal:flex lg:space-x-16">
               <Link
                 className="text-md font-semibold text-gray-200 hover:text-violet-700"
@@ -67,13 +75,17 @@ const Navigation = () => {
                   </h1>
                 </Link>
               )}
-              <h1 className="ml-5 py-2 font-semibold text-gray-200 hover:cursor-pointer hover:text-violet-700">
+              <button
+                onClick={handleQuickCheckout}
+                className="ml-5 py-2 font-semibold text-gray-200 hover:cursor-pointer hover:text-violet-700"
+              >
                 CART
                 <i className="fa-solid fa-cart-shopping px-1"></i>
-              </h1>
+              </button>
             </div>
           </div>
         </div>
+        <QuickCheckout />
         <HiddenMenu />
       </nav>
       <Outlet />

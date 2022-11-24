@@ -14,12 +14,12 @@ const Hats = () => {
               className="card-zoom h-[500px] rounded-xl drop-shadow-lg sm:h-[550px] md:h-[600px]"
             >
               <div
-                className="absolute h-full w-full transform rounded-xl bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
+                className="absolute top-0 h-[90%] w-full transform rounded-xl bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
                 style={{
                   backgroundImage: `url(${product.imageUrl})`,
                 }}
               ></div>
-              <div className="absolute bottom-0 w-[100%] rounded-b-xl bg-white px-3 py-3">
+              <div className="absolute bottom-0 w-[80%] rounded-xl bg-white px-3 py-3">
                 <h1 className="text-2xl font-bold text-gray-900">
                   {product.name}
                 </h1>
