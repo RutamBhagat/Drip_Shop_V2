@@ -20,7 +20,7 @@ const Navigation = () => {
     <Fragment>
       <nav
       id="nav-bar"
-      className="custom-gradient fixed top-0 right-0 left-0 z-50">
+      className="custom-gradient fixed top-0 right-0 left-0 normal:h-auto z-50">
         <div className="bg-transparent">
           <div className="mx-auto flex items-center justify-between bg-transparent py-5 px-10 normal:px-3 md:px-10 lg:max-w-[90vw] xl:max-w-[80vw]">
             <HamburgerButtonComponent className="ml-auto" />

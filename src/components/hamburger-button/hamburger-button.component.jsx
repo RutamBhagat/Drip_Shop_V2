@@ -6,7 +6,7 @@ const HamburgerButtonComponent = () => {
 
   const showHiddenMenu = () => {
     const navBar = document.querySelector("#nav-bar")
-    navBar.classList.toggle("bottom-0")
+    navBar.classList.toggle("h-screen")
     const hiddenMenu = document.querySelector("#hidden-menu");
     hiddenMenu.classList.toggle("hidden");
   };
