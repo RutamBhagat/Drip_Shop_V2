@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const CategoryItem = ({ index, categories }) => {
   return (
     <Fragment>
-      <div class="grid-row-reverse grid w-full">
-        <div class="grid grid-cols-1 gap-4 p-4 normal:grid-cols-2">
+      <div className="grid-row-reverse grid w-full">
+        <div className="grid grid-cols-1 gap-4 p-4 normal:grid-cols-2">
           <Link
             to="/shop/hats"
             className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black`}

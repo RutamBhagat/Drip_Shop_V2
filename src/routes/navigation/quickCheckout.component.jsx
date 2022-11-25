@@ -5,7 +5,7 @@ const QuickCheckout = () => {
   return (
     <div
       id="quick-checkout"
-      className="fixed right-0 z-50 hidden h-[550px] w-[325px] border border-gray-400 bg-gray-200 drop-shadow-lg"
+      className="fixed right-0 z-50 h-[550px] w-[325px] border border-gray-400 bg-gray-200 drop-shadow-lg"
     >
       <div className="flex h-full w-full flex-col">
         <div className="h-4/5 w-full overflow-y-scroll">

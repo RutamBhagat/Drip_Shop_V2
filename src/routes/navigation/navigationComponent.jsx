@@ -7,20 +7,18 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./navigation.styles.css";
 import ItemsInCart from "./itemsInCart.components";
 import QuickCheckout from "./quickCheckout.component";
+import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-
-  const handleQuickCheckout = () => {
-    const quickCheckout = document.querySelector("#quick-checkout");
-    quickCheckout.classList.toggle("hidden");
-  };
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
       <nav
-      id="nav-bar"
-      className="custom-gradient fixed top-0 right-0 left-0 normal:h-auto z-50">
+        id="nav-bar"
+        className="custom-gradient fixed top-0 right-0 left-0 z-50 normal:h-auto"
+      >
         <div className="bg-transparent">
           <div className="mx-auto flex items-center justify-between bg-transparent py-5 px-10 normal:px-3 md:px-10 lg:max-w-[90vw] xl:max-w-[80vw]">
             <HamburgerButtonComponent className="ml-auto" />
@@ -33,8 +31,10 @@ const Navigation = () => {
               </h1>
             </Link>
             <button
-              onClick={handleQuickCheckout}
-              className="hover:text-violet-900 relative h-12 w-12 rounded-full border-2 border-transparent bg-white text-xl text-gray-800 transition duration-150 ease-in-out normal:hidden"
+              onClick={() => {
+                setIsCartOpen(!isCartOpen);
+              }}
+              className="relative h-12 w-12 rounded-full border-2 border-transparent bg-white text-xl text-gray-800 transition duration-150 ease-in-out hover:text-violet-900 normal:hidden"
               aria-label="Cart"
             >
               <i className="fa-solid fa-cart-shopping"></i>
@@ -78,7 +78,9 @@ const Navigation = () => {
                 </Link>
               )}
               <button
-                onClick={handleQuickCheckout}
+                onClick={() => {
+                  setIsCartOpen(!isCartOpen);
+                }}
                 className="ml-5 py-2 font-semibold text-gray-200 hover:cursor-pointer hover:text-violet-700"
               >
                 CART
@@ -87,7 +89,7 @@ const Navigation = () => {
             </div>
           </div>
         </div>
-        <QuickCheckout />
+        {isCartOpen && <QuickCheckout />}
         <HiddenMenu />
       </nav>
       <Outlet />
