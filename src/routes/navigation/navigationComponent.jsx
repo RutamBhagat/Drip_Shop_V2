@@ -13,6 +13,10 @@ const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
+  const handleCartOpen = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
     <Fragment>
       <nav
@@ -31,9 +35,7 @@ const Navigation = () => {
               </h1>
             </Link>
             <button
-              onClick={() => {
-                setIsCartOpen(!isCartOpen);
-              }}
+              onClick={handleCartOpen}
               className="relative h-12 w-12 rounded-full border-2 border-transparent bg-white text-xl text-gray-800 transition duration-150 ease-in-out hover:text-violet-900 normal:hidden"
               aria-label="Cart"
             >
@@ -78,9 +80,7 @@ const Navigation = () => {
                 </Link>
               )}
               <button
-                onClick={() => {
-                  setIsCartOpen(!isCartOpen);
-                }}
+                onClick={handleCartOpen}
                 className="ml-5 py-2 font-semibold text-gray-200 hover:cursor-pointer hover:text-violet-700"
               >
                 CART
