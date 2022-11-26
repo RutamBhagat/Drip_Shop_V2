@@ -11,7 +11,7 @@ const EmptyCart = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-5 text-center text-gray-600">
-      <h1 className="text-xl">Your Shopping Bag is Empty</h1>
+      <h1 className="text-xl">Your Shopping Cart is Empty</h1>
       <Link
         to={"/shop"}
         onClick={handleCartOpen}

@@ -48,7 +48,7 @@ const shopDisplay = () => {
       <SwiperSlide
         className="h-[500px] w-[300px] rounded-xl border border-black bg-cover bg-center bg-no-repeat sm:h-[550px] sm:w-[350px] md:h-[600px] md:w-[400px]"
         style={{
-          backgroundImage: `url("https://source.unsplash.com/d2s8NQ6WD24")`,
+          backgroundImage: `url("https://i.pinimg.com/originals/ac/91/13/ac9113cc327a78c230c3f083359b6fd7.jpg")`,
         }}
       >
         <Link to="hats">

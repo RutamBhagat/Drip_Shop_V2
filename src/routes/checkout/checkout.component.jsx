@@ -1,26 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { CartContext } from "../../contexts/cart.context";
 import CheckoutCartItem from "./checkoutCartItem.component";
 import EmptyCart from "./emptyCart.component";
 
 const Checkout = () => {
   const { cartItems, cartTotal, cartLength } = useContext(CartContext);
+  const warningRef = useRef()
+  const paymentFormRef = useRef()
+  const summeryRef = useRef()
 
   const removeWarning = () => {
-    const warning = document.querySelector("#checkout-warning");
-    warning.classList.toggle("hidden");
+    warningRef.current.classList.toggle("hidden")
   };
 
   const togglePaymentForm = () => {
-    const paymentForm = document.querySelector("#payment-form");
-    paymentForm.classList.toggle("hidden");
-    const summery = document.querySelector("#summery")
-    summery.classList.toggle("lg:grid-cols-3")
+    paymentFormRef.current.classList.toggle("hidden");
+    summeryRef.current.classList.toggle("lg:grid-cols-3")
   };
 
   return (
     <div className="pt-24">
-      <div id="summery" className="grid min-h-screen">
+      <div ref={summeryRef} className="grid min-h-screen">
         <div className="col-span-1 mx-3 bg-white sm:mx-12 lg:order-2 lg:mx-0">
           <h1 className="border-b-2 py-6 px-8 text-xl text-gray-600">
             Order Summary
@@ -64,11 +64,11 @@ const Checkout = () => {
           )}
         </div>
         <div
-          id="payment-form"
+          ref={paymentFormRef}
           className="col-span-1 hidden space-y-8 bg-gray-800 px-3 sm:px-12 lg:col-span-2"
         >
           <div
-            id="checkout-warning"
+            ref={warningRef}
             className="relative mt-8 flex flex-col rounded-md bg-white p-4 shadow sm:flex-row sm:items-center"
           >
             <div className="flex w-full flex-row items-center border-b pb-4 sm:w-auto sm:border-b-0 sm:pb-0">
@@ -236,7 +236,7 @@ const Checkout = () => {
             </section>
           </div>
           <button className="submit-button w-full rounded-full bg-amber-600 px-4 py-3 text-xl font-semibold text-white transition-colors focus:outline-none focus:ring">
-            Pay €846.98
+            Pay ${cartTotal}
           </button>
         </div>
       </div>

@@ -33,7 +33,7 @@ const QuickCheckout = () => {
             <h2 className="font-bold text-gray-900">$ {cartTotal}</h2>
           </div>
           <Link onClick={handleCartOpen} className="w-full" to="/checkout">
-            <button className="text-md mt-5 w-full bg-gray-900 py-2 text-gray-300">
+            <button className="text-md mt-5 w-full bg-gray-900 hover:bg-gray-700 py-2 text-gray-300">
               CHECKOUT {cartLength ? `(${cartLength})` : ""}
             </button>
           </Link>
