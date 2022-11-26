@@ -7,6 +7,8 @@ export const CartContext = createContext({
   addItemToCart: () => {},
   cartTotal: null,
   cartLength: null,
+  removeItemFromCart: () => {},
+  updateItemInCart: () => {}
 });
 
 const addCartItem = (cartItems, productToAdd) => {
@@ -26,6 +28,23 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
+const removeFromCartItem = (cartItems, productToRemove) => {
+  const index = cartItems.indexOf(productToRemove);
+  cartItems.splice(index, 1);
+  return [...cartItems];
+};
+
+const updateCartItem = (cartItems, productToUpdate, newQuantity) => {
+  return cartItems.map((inst) => {
+    if (inst.id === productToUpdate.id) {
+      const quantity = Number.parseInt(newQuantity);
+      return { ...inst, quantity };
+    } else {
+      return inst;
+    }
+  });
+};
+
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -33,16 +52,30 @@ export const CartProvider = ({ children }) => {
   const [cartLength, setCartLength] = useState(0);
 
   useEffect(() => {
-    const newCartTotal = cartItems.reduce(
+    const newCartLength = cartItems.reduce(
       (accumulator, inst) => accumulator + inst.quantity,
       0
     );
-    setCartLength(newCartTotal);
-  });
+    setCartLength(newCartLength);
+  }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
     setCartTotal(cartTotal + productToAdd.price);
+  };
+
+  const removeItemFromCart = (productToRemove) => {
+    setCartItems(removeFromCartItem(cartItems, productToRemove));
+    setCartTotal(cartTotal - (productToRemove.price * productToRemove.quantity));
+  };
+
+  const updateItemInCart = (productToUpdate, newQuantity) => {
+    setCartItems(updateCartItem(cartItems, productToUpdate, newQuantity));
+    setCartTotal(
+      cartTotal -
+        productToUpdate.price * Number.parseInt(productToUpdate.quantity) +
+        productToUpdate.price * Number.parseInt(newQuantity)
+    );
   };
 
   const value = {
@@ -50,8 +83,10 @@ export const CartProvider = ({ children }) => {
     setIsCartOpen,
     cartItems,
     addItemToCart,
+    removeItemFromCart,
     cartTotal,
     cartLength,
+    updateItemInCart
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -1,74 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../contexts/cart.context";
+import CheckoutCartItem from "./checkoutCartItem.component";
+import EmptyCart from "./emptyCart.component";
 
 const Checkout = () => {
+  const { cartItems, cartTotal, cartLength } = useContext(CartContext);
+
   const removeWarning = () => {
     const warning = document.querySelector("#checkout-warning");
     warning.classList.toggle("hidden");
   };
 
+  const togglePaymentForm = () => {
+    const paymentForm = document.querySelector("#payment-form");
+    paymentForm.classList.toggle("hidden");
+    const summery = document.querySelector("#summery")
+    summery.classList.toggle("lg:grid-cols-3")
+  };
+
   return (
-    <div className="py-36">
-      <div className="grid h-screen lg:grid-cols-3">
-        <div className="mx-3 sm:mx-12 lg:mx-0 lg:order-2 col-span-1 bg-white">
+    <div className="pt-24">
+      <div id="summery" className="grid min-h-screen">
+        <div className="col-span-1 mx-3 bg-white sm:mx-12 lg:order-2 lg:mx-0">
           <h1 className="border-b-2 py-6 px-8 text-xl text-gray-600">
             Order Summary
           </h1>
-          <ul className="space-y-6 border-b py-6 px-8">
-            <li className="border-b-1 grid grid-cols-6 gap-2">
-              <div className="col-span-1 self-center">
-                <img
-                  src="https://bit.ly/3oW8yej"
-                  alt="Product"
-                  className="w-full rounded"
-                />
+          <div className="max-h-[450px] overflow-y-scroll border-b">
+            {cartLength ? (
+              cartItems.map((cartItem) => {
+                return <CheckoutCartItem cartItem={cartItem} />;
+              })
+            ) : (
+              <div className="py-20 lg:py-44">
+                <EmptyCart />
               </div>
-              <div className="col-span-3 flex flex-col pt-2">
-                <span className="text-md font-semi-bold text-gray-600">
-                  Studio 2 Headphone
-                </span>
-                <span className="inline-block pt-2 text-sm text-gray-400">
-                  Red Headphone
-                </span>
-              </div>
-              <div className="col-span-2 pt-3">
-                <div className="flex items-center justify-between space-x-2 text-sm">
-                  <span className="text-gray-400">2 x €30.99</span>
-                  <span className="inline-block font-semibold text-amber-900">
-                    €61.98
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li className="border-b-1 grid grid-cols-6 gap-2">
-              <div className="col-span-1 self-center">
-                <img
-                  src="https://bit.ly/3lCyoSx"
-                  alt="Product"
-                  className="w-full rounded"
-                />
-              </div>
-              <div className="col-span-3 flex flex-col pt-2">
-                <span className="text-md font-semi-bold text-gray-600">
-                  Apple iPhone 13
-                </span>
-                <span className="inline-block pt-2 text-sm text-gray-400">
-                  Phone
-                </span>
-              </div>
-              <div className="col-span-2 pt-3">
-                <div className="flex items-center justify-between space-x-2 text-sm">
-                  <span className="text-gray-400">1 x €785</span>
-                  <span className="inline-block font-semibold text-amber-900">
-                    €785
-                  </span>
-                </div>
-              </div>
-            </li>
-          </ul>
+            )}
+          </div>
           <div className="border-b px-8">
             <div className="flex justify-between py-4 text-gray-600">
               <span>Subtotal</span>
-              <span className="font-semibold text-amber-900">€846.98</span>
+              <span className="font-semibold text-amber-900">${cartTotal}</span>
             </div>
             <div className="flex justify-between py-4 text-gray-600">
               <span>Shipping</span>
@@ -77,10 +48,25 @@ const Checkout = () => {
           </div>
           <div className="flex justify-between px-8 py-8 text-xl font-semibold text-gray-600">
             <span>Total</span>
-            <span>€846.98</span>
+            <span>${cartTotal}</span>
           </div>
+          {cartTotal ? (
+            <div className="flex items-center justify-center p-5">
+              <button
+                onClick={togglePaymentForm}
+                className="w-2/3 rounded-full bg-amber-600 px-4 py-3 text-center text-xl font-semibold text-white transition-colors focus:outline-none focus:ring md:w-1/3 lg:w-2/3"
+              >
+                Proceed To Pay
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
-        <div className="col-span-1 space-y-8 bg-gray-800 px-12 lg:col-span-2">
+        <div
+          id="payment-form"
+          className="col-span-1 hidden space-y-8 bg-gray-800 px-3 sm:px-12 lg:col-span-2"
+        >
           <div
             id="checkout-warning"
             className="relative mt-8 flex flex-col rounded-md bg-white p-4 shadow sm:flex-row sm:items-center"
@@ -128,7 +114,7 @@ const Checkout = () => {
             </div>
           </div>
           <div className="rounded-md">
-            <form id="payment-form" method="POST" action="">
+            <form method="POST" action="">
               <section>
                 <h2 className="my-2 text-lg font-semibold uppercase tracking-wide text-gray-300">
                   Shipping & Billing Information
@@ -195,6 +181,7 @@ const Checkout = () => {
                     >
                       <select
                         name="country"
+                        value={"IN"}
                         className="flex-1 cursor-pointer appearance-none border-none bg-transparent focus:outline-none"
                       >
                         <option value="AU">Australia</option>
