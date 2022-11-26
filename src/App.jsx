@@ -7,6 +7,7 @@ import Register from "./routes/authentication/register.component";
 import Hats from "./routes/shop/Cards/hats.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
+import Checkout from "./routes/checkout/checkout.component";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route index element={<Signin />} />
           <Route path="register" element={<Register />} />
         </Route>
+        <Route path="checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );

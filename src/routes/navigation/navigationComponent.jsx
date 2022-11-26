@@ -11,7 +11,7 @@ import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartLength } = useContext(CartContext);
 
   const handleCartOpen = () => {
     setIsCartOpen(!isCartOpen);
@@ -40,7 +40,7 @@ const Navigation = () => {
               aria-label="Cart"
             >
               <i className="fa-solid fa-cart-shopping"></i>
-              <ItemsInCart checkoutArr={[11]} />
+              <ItemsInCart cartLength={cartLength} />
             </button>
             <div className="ml-auto hidden items-center space-x-8 text-lg normal:flex lg:space-x-16">
               <Link

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import CartItem from "./cartitem.component";
 import { CartContext } from "../../contexts/cart.context";
+import { Link } from "react-router-dom";
 
 const QuickCheckout = () => {
   const { cartItems, cartTotal, cartLength } = useContext(CartContext);
@@ -21,9 +22,11 @@ const QuickCheckout = () => {
             <h2 className="text-gray-700">Subtotal:</h2>
             <h2 className="font-bold text-gray-900">$ {cartTotal}</h2>
           </div>
+          <Link className="w-full" to={cartLength ? "/checkout" : ""}>
           <button className="text-md mt-5 w-full bg-gray-900 py-2 text-gray-300">
-            CHECKOUT {(cartLength) ? `(${cartLength})` : ""}
+            CHECKOUT {cartLength ? `(${cartLength})` : ""}
           </button>
+          </Link>
         </div>
       </div>
     </div>

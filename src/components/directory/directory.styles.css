@@ -1,8 +1,8 @@
 .custom-bg-home {
   background: linear-gradient(
     to left,
-    rgb(17, 24, 39) 0%,
-    rgb(17, 24, 39) 50%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 50%,
     white 50%,
     white 100%
   );
