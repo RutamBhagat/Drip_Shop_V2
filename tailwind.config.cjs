@@ -22,8 +22,8 @@ module.exports = {
         veryLightGray: "hsl(0, 0%, 98%)",
       },
       backgroundImage: {
-        store1: "url(https://source.unsplash.com/PpkID3ejSig)",
-        store2: "url(https://source.unsplash.com/x230a__cFO0)",
+        store1: "url(https://images.unsplash.com/photo-1612864740469-d74de99c6037?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2ODUwMTUxNg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080)",
+        store2: "url(https://images.unsplash.com/photo-1513521712264-512ceb91a940?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjg0OTQwNQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080)",
       },
     },
   },
