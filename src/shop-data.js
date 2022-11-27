@@ -261,7 +261,7 @@ const SHOP_DATA = [
         id: 10,
         name: 'White Canvas Womens',
         imageUrl: 'https://www.dhresource.com/f2/albu/g12/M01/B2/AF/rBVakV87wnWANdQ6AAUWGYd4GWc431.jpg',
-        stars: 4,
+        stars: 3,
         price: 220,
       },
       {
@@ -275,7 +275,7 @@ const SHOP_DATA = [
         id: 12,
         name: 'Nike Air Jordan 1',
         imageUrl: 'https://i.pinimg.com/originals/0e/db/d8/0edbd82d07cf02930e8d602fa4c47f56.jpg',
-        stars: 4,
+        stars: 5,
         price: 110,
       },
       {
@@ -310,7 +310,7 @@ const SHOP_DATA = [
         id: 17,
         name: 'Nike Back To The Future',
         imageUrl: 'https://cdnb.artstation.com/p/assets/images/images/035/492/257/large/natalia-novgorodtseva-.jpg?1615121934',
-        stars: 4,
+        stars: 3,
         price: 200,
       },
     ],

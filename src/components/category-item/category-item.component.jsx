@@ -7,7 +7,7 @@ const CategoryItem = ({ index, categories }) => {
       <div className="grid-row-reverse grid w-full">
         <div className="grid grid-cols-1 gap-4 p-4 normal:grid-cols-2">
           <Link
-            to="/shop/hats"
+            to={`/shop/${categories[index].title}`}
             className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black`}
           >
             <div
@@ -24,7 +24,7 @@ const CategoryItem = ({ index, categories }) => {
             </div>
           </Link>
           <Link
-            to="/shop/hats"
+            to={`/shop/${categories[index + 1].title}`}
             className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black`}
           >
             <div
@@ -42,7 +42,7 @@ const CategoryItem = ({ index, categories }) => {
           </Link>
 
           <Link
-            to="/shop/hats"
+            to={`/shop/${categories[index + 2].title}`}
             className={`card-zoom flex h-[200px] w-[100%] rounded-lg border border-black normal:col-span-2 normal:h-[300px] ${
               index === 3 ? "order-first" : ""
             }`}
