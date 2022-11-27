@@ -55,7 +55,7 @@ const CheckoutCartItem = ({ cartItem }) => {
           <div className="flex flex-col justify-between">
             <i
               onClick={handleRemoveItemFromCart}
-              class="fa-regular fa-trash-can ml-auto text-lg text-gray-600"
+              className="fa-regular fa-trash-can ml-auto text-lg text-gray-600"
             ></i>
 
             <h1 className="text-normal font-semibold text-amber-900 md:text-xl">

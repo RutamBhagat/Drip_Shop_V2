@@ -11,26 +11,30 @@ const IndividualComponent = ({ product }) => {
     addItemToCart(product);
   };
 
+  const handleZoom = () => {
+    setIsZoomed(true);
+    setZoomUrl(product.imageUrl);
+  };
+
   return (
     <div className="card-zoom h-[500px] rounded-xl drop-shadow-lg sm:h-[550px] md:h-[600px]">
       <div
-        onClick={() => {
-          console.log("clicked")
-          setIsZoomed(true)
-          setZoomUrl(product.imageUrl)
-        }}
+        onClick={handleZoom}
         className="absolute top-0 h-[90%] w-full transform rounded-xl bg-cover bg-center transition-all duration-500 ease-in-out hover:scale-125"
         style={{
           backgroundImage: `url(${product.imageUrl})`,
         }}
       ></div>
+      <i
+        onClick={handleZoom}
+        className="fa-solid fa-expand absolute top-2 right-2 z-50 px-1 text-2xl text-white opacity-50 hover:cursor-pointer"
+      ></i>
       <div className="absolute bottom-0 w-[80%] rounded-xl border border-gray-700 bg-white px-3 py-3">
         <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
-        <div className="flex justify-between items-center">
-          <div className="item-center flex m-1">
+        <div className="flex items-center justify-between">
+          <div className="item-center m-1 flex">
             <Stars stars={product.stars} />
           </div>
-          {/* <h1 className="p-3 underline decoration-solid hover:cursor-pointer">View Details</h1> */}
         </div>
         <div className="item-center mt-3 flex justify-between">
           <h1 className="text-xl font-bold text-gray-700">{`$${product.price}`}</h1>

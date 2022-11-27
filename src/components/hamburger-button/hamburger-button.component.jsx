@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { HiddenMenuContext } from "../../contexts/hiddenMenu.context";
 import "./hamburger-button.styles.scss";
 
 const HamburgerButtonComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const showHiddenMenu = () => {
-    const navBar = document.querySelector("#nav-bar")
-    navBar.classList.toggle("h-screen")
-    const hiddenMenu = document.querySelector("#hidden-menu");
-    hiddenMenu.classList.toggle("hidden");
-  };
+  const { hiddenMenuIsOpen, setHiddenMenuIsOpen } = useContext(HiddenMenuContext);
 
   return (
     <button
       className="group flex h-9 w-9 flex-col items-center justify-center rounded normal:hidden"
       onClick={() => {
-        showHiddenMenu();
-        setIsOpen(!isOpen);
+        setHiddenMenuIsOpen(!hiddenMenuIsOpen)
       }}
     >
       <div

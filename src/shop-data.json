@@ -4,21 +4,21 @@
     "name": "Blue Beret",
     "imageUrl": "https://i.pinimg.com/originals/e5/60/6b/e5606b0deafeeefb56e5c5be72d31f71.jpg",
     "price": 25,
-    "stars": 4
+    "stars": 5
   },
   {
     "id": 2,
     "name": "Willow Fedora",
     "imageUrl": "https://i.pinimg.com/originals/2d/1d/8e/2d1d8eb8ab955dc606e8fa8ebe8a3f02.jpg",
     "price": 18,
-    "stars": 3
+    "stars": 5
   },
   {
     "id": 3,
     "name": "America's Cap",
     "imageUrl": "https://i.pinimg.com/originals/12/09/72/1209727677853d40e8c1f6f60ac8f576.jpg",
     "price": 35,
-    "stars": 3
+    "stars": 5
   },
   {
     "id": 4,
@@ -32,14 +32,14 @@
     "name": "Blue Beanie",
     "imageUrl": "https://i.etsystatic.com/12776707/r/il/211068/2737295221/il_794xN.2737295221_7iut.jpg",
     "price": 18,
-    "stars": 3
+    "stars": 4
   },
   {
     "id": 6,
     "name": "Brown Cowboy",
     "imageUrl": "https://i.pinimg.com/originals/ef/56/97/ef56975e3ea4744be31905926a863c7b.jpg",
     "price": 14,
-    "stars": 5
+    "stars": 3
   },
   {
     "id": 7,
@@ -53,20 +53,20 @@
     "name": "Brown Brim",
     "imageUrl": "https://i.pinimg.com/originals/1d/58/7c/1d587c516a2f7ecacc193daeaa88be04.jpg",
     "price": 14,
-    "stars": 5
+    "stars": 3
   },
   {
     "id": 9,
     "name": "Slouchy Beanie",
     "imageUrl": "https://i.etsystatic.com/10235400/r/il/cee42a/2123163507/il_1588xN.2123163507_7gi6.jpg",
     "price": 16,
-    "stars": 3
+    "stars": 4
   },
   {
     "id": 10,
     "name": "Green Beanie",
     "imageUrl": "https://i.pinimg.com/originals/b8/11/35/b81135b1061166b185023bb20ae4e92a.jpg",
     "price": 16,
-    "stars": 5
+    "stars": 3
   }
 ]

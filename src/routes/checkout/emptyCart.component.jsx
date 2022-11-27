@@ -17,7 +17,7 @@ const EmptyCart = () => {
         onClick={handleCartOpen}
         className="pt-3 text-sm hover:cursor-pointer hover:underline hover:decoration-solid"
       >
-        <i class="fa-solid fa-circle-chevron-left px-2 text-gray-700"></i>CONTINUE SHOPPING
+        <i className="fa-solid fa-circle-chevron-left px-2 text-gray-700"></i>CONTINUE SHOPPING
       </Link>
     </div>
   );

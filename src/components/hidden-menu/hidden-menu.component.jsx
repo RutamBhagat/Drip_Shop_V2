@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { HiddenMenuContext } from "../../contexts/hiddenMenu.context";
 
 const HiddenMenu = () => {
   const { currentUser } = useContext(UserContext);
+  const { hiddenMenuIsOpen, setHiddenMenuIsOpen } =
+  useContext(HiddenMenuContext);
 
   return (
     <div
       id="hidden-menu"
-      className="absolute left-0 right-0 bottom-0 hidden h-[90%] w-screen drop-shadow-md normal:hidden"
+      className={`absolute left-0 right-0 bottom-0 ${hiddenMenuIsOpen ? "" : "hidden"} h-[90%] w-screen drop-shadow-md normal:hidden`}
     >
       <div className="flex h-full flex-col w-[175px] rounded-tr-3xl bg-gray-700 px-5 py-2">
         <Link className="text-md my-2 flex" to="/">

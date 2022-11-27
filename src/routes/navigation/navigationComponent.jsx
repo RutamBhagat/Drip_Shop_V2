@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useRef } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { Outlet, Link } from "react-router-dom";
 import HamburgerButtonComponent from "../../components/hamburger-button/hamburger-button.component";
@@ -8,9 +8,11 @@ import "./navigation.styles.css";
 import ItemsInCart from "./itemsInCart.components";
 import QuickCheckout from "./quickCheckout.component";
 import { CartContext } from "../../contexts/cart.context";
+import { HiddenMenuContext } from "../../contexts/hiddenMenu.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+  const { hiddenMenuIsOpen } = useContext(HiddenMenuContext);
   const { isCartOpen, setIsCartOpen, cartLength } = useContext(CartContext);
 
   const handleCartOpen = () => {
@@ -20,8 +22,9 @@ const Navigation = () => {
   return (
     <Fragment>
       <nav
-        id="nav-bar"
-        className="custom-gradient fixed top-0 right-0 left-0 z-50 normal:h-auto"
+        className={`custom-gradient fixed top-0 right-0 left-0 z-50 normal:h-auto ${
+          hiddenMenuIsOpen ? "h-screen" : ""
+        }`}
       >
         <div className="bg-transparent">
           <div className="mx-auto flex items-center justify-between bg-transparent py-5 px-10 normal:px-3 md:px-10 lg:max-w-[90vw] xl:max-w-[80vw]">
@@ -81,10 +84,11 @@ const Navigation = () => {
               )}
               <button
                 onClick={handleCartOpen}
-                className="ml-5 py-2 font-semibold text-gray-200 hover:cursor-pointer hover:text-violet-700"
+                className="relative ml-5 py-2 px-2 font-semibold text-gray-200 hover:cursor-pointer hover:text-violet-700"
               >
                 CART
                 <i className="fa-solid fa-cart-shopping px-1"></i>
+                <ItemsInCart cartLength={cartLength} />
               </button>
             </div>
           </div>
