@@ -6,12 +6,14 @@ const HamburgerButtonComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { hiddenMenuIsOpen, setHiddenMenuIsOpen } = useContext(HiddenMenuContext);
 
+  const handleHiddenMenu = () => {
+    setHiddenMenuIsOpen(!hiddenMenuIsOpen)
+  }
+
   return (
     <button
       className="group flex h-9 w-9 flex-col items-center justify-center rounded normal:hidden"
-      onClick={() => {
-        setHiddenMenuIsOpen(!hiddenMenuIsOpen)
-      }}
+      onClick={handleHiddenMenu}
     >
       <div
         className={`genericHamburgerLine mb-0 ${

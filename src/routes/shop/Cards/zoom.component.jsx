@@ -3,6 +3,7 @@ import { ZoomContext } from "../../../contexts/zoom.context";
 
 const ZoomComponent = () => {
   const { zoomUrl, isZoomed, setIsZoomed } = useContext(ZoomContext);
+  const handleZoom = () => setIsZoomed(false)
 
   return (
     <div
@@ -15,7 +16,7 @@ const ZoomComponent = () => {
           <div className="w-full">
             <img className="mx-auto" src={zoomUrl}></img>
             <button
-              onClick={() => setIsZoomed(false)}
+              onClick={handleZoom}
               type="button"
               className="absolute top-3 right-5 ml-auto inline-flex items-center rounded-lg bg-gray-300 p-1.5 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
               data-modal-toggle="popup-modal"
