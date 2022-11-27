@@ -27,10 +27,10 @@ const IndividualComponent = ({ product }) => {
       ></div>
       <i
         onClick={handleZoom}
-        className="fa-solid fa-expand absolute top-2 right-2 z-50 px-1 text-2xl text-white opacity-50 hover:cursor-pointer"
+        className="fa-solid bg-black rounded-lg fa-expand absolute top-2 right-2 z-50 py-1 px-2 text-2xl text-white opacity-50 hover:cursor-pointer"
       ></i>
       <div className="absolute bottom-0 w-[80%] rounded-xl border border-gray-700 bg-white px-3 py-3">
-        <h1 className="text-2xl font-bold text-gray-900">{product.name}</h1>
+        <h1 className="min-h-[75px] text-2xl font-bold text-gray-900">{product.name}</h1>
         <div className="flex items-center justify-between">
           <div className="item-center m-1 flex">
             <Stars stars={product.stars} />

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import PRODUCTS from "../shop-data.json";
+import SHOP_DATA from "../shop-data";
 
 export const ProductsContext = createContext({
   products: [],
@@ -11,7 +11,7 @@ export const ProductsProvider = ({ children }) => {
   const value = { products, setProducts };
 
   useEffect(() => {
-    setProducts(PRODUCTS);
+    setProducts(SHOP_DATA);
   }, []);
 
   return (

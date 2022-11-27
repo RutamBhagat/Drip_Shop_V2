@@ -1,10 +1,10 @@
 import React from "react";
 import IndividualCategory from "./individualCategory.component";
 
-const Hats = () => {
+const Sneakers = () => {
   return (
-    <IndividualCategory target={"Hats"} />
+    <IndividualCategory target={"Sneakers"} />
   );
 };
 
-export default Hats;
+export default Sneakers;
