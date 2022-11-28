@@ -1,20 +1,19 @@
-import React from "react";
-import SHOP_DATA from "../../shop-data";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ProductsContext } from "../../contexts/products.context";
+import "./shopDisplay.styles.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-
-import "./shopDisplay.styles.css";
-
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
-import { Link } from "react-router-dom";
 
 const shopDisplay = () => {
+  const { products } = useContext(ProductsContext);
+  const items = Object.keys(products);
   return (
     <Swiper
       effect={"coverflow"}
@@ -32,18 +31,19 @@ const shopDisplay = () => {
       modules={[EffectCoverflow, Pagination]}
       className="mySwiper my-auto py-10"
     >
-      {SHOP_DATA.map((inst) => {
+      {items.map((item) => {
         return (
           <SwiperSlide
+            key={item}
             className="h-[500px] w-[300px] rounded-xl border border-black bg-cover bg-center bg-no-repeat drop-shadow-lg sm:h-[550px] sm:w-[350px] md:h-[600px] md:w-[400px]"
             style={{
-              backgroundImage: `url(${inst.displayImg})`,
+              backgroundImage: `url(${products[item].displayImg})`,
             }}
           >
-            <Link to={inst.title.toLowerCase()}>
+            <Link to={item.toLowerCase()}>
               <div className="custom-gradient-shopDisplay flex h-[100%] w-[100%] items-end justify-start rounded-xl border border-white">
                 <h1 className="py-10 pl-10 text-5xl font-bold text-white">
-                  {inst.title.toUpperCase()}
+                  {item.toUpperCase()}
                 </h1>
               </div>
             </Link>

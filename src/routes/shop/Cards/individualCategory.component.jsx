@@ -4,17 +4,8 @@ import IndividualComponent from "./individualCard.component";
 
 const IndividualCategory = ({target}) => {
   const { products } = useContext(ProductsContext);
-  const [targetItems, setTargetItems] = useState([])
+  const targetItems = products[target].items
   
-  useEffect(() => {
-    for(let inst of products){
-      if (inst.title === target){
-        setTargetItems(inst.items)
-        console.log(inst.items)
-        break
-      }
-    }
-  }, [products])
   return (
     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
       {targetItems.map((product) => {

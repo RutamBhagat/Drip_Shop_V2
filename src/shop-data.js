@@ -217,6 +217,13 @@ const SHOP_DATA = [
     displayImg: "https://rare-gallery.com/uploads/posts/4548884-women-delaia-gonzalez-women-with-glasses-brunette-portrait-depth-of-field-street-red-coat-coats.jpg",
     items: [
       {
+        id: 1118,
+        name: 'Green Jacket',
+        imageUrl: 'https://uhd.name/uploads/posts/2020-10/1603561283_28-p-karina-sicheva-102.jpg',
+        stars: 5,
+        price: 125,
+      },
+      {
         id: 18,
         name: 'Leather Jacket',
         imageUrl: 'https://i.pinimg.com/originals/d5/7a/e2/d57ae2ed8090f3264743ea3b0dcb8f35.jpg',
