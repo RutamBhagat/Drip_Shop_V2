@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import SHOP_DATA from "../shop-data";
 import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 // This is for setting up shop items to firestore db first time

@@ -14,15 +14,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />} >
-          <Route index element={<ShopDisplay />} />
-          <Route path="womens" element={<IndividualCategory target={"womens"} />} />
-          <Route path="mens" element={<IndividualCategory target={"mens"} />} />
-          <Route path="hats" element={<IndividualCategory target={"hats"} />} />
-          <Route path="suits" element={<IndividualCategory target={"suits"} />} />
-          <Route path="jackets" element={<IndividualCategory target={"jackets"} />} />
-          <Route path="sneakers" element={<IndividualCategory target={"sneakers"} />} />
-        </Route>
+        <Route path="shop/*" element={<Shop />} />
         <Route path="authentication" element={<Authentication />}>
           <Route index element={<Signin />} />
           <Route path="register" element={<Register />} />
