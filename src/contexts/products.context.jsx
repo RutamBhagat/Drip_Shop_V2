@@ -3,6 +3,7 @@ import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 // This is for setting up shop items to firestore db first time
 // import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils";
+// import SHOP_DATA from "../shop-data"
 
 export const ProductsContext = createContext({
   products: {},
