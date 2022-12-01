@@ -11,7 +11,7 @@ const ZoomComponent = () => {
         isZoomed ? "" : "hidden"
       }`}
     >
-      <div className="scroll flex h-[90%] mx-20 max-w-5xl justify-center overflow-scroll scroll-smooth whitespace-nowrap">
+      <div className="scroll flex h-[90%] mx-3 md:mx-10 lg:mx-20 max-w-5xl justify-center overflow-y-scroll scroll-smooth whitespace-nowrap">
         <img className=" m-auto" src={zoomUrl} />
       </div>
       <button

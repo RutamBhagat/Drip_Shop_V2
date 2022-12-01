@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { UserContext } from "../../contexts/user.context";
+import { UserContext } from "../../../contexts/user.context";
 import { Link } from "react-router-dom";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
-import { HiddenMenuContext } from "../../contexts/hiddenMenu.context";
+import { signOutUser } from "../../../utils/firebase/firebase.utils";
+import { HiddenMenuContext } from "../../../contexts/hiddenMenu.context";
 
 const HiddenMenu = () => {
   const { currentUser } = useContext(UserContext);

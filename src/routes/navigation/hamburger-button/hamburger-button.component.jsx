@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { HiddenMenuContext } from "../../contexts/hiddenMenu.context";
+import { HiddenMenuContext } from "../../../contexts/hiddenMenu.context";
 import "./hamburger-button.styles.scss";
 
 const HamburgerButtonComponent = () => {

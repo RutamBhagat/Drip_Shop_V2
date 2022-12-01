@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../../contexts/cart.context";
 import { ZoomContext } from "../../../contexts/zoom.context";
-import Stars from "../../../components/stars/stars.component";
+import Stars from "../stars/stars.component";
 
 const IndividualComponent = ({ product }) => {
   const { addItemToCart } = useContext(CartContext);
