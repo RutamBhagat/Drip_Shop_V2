@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
-import { ZoomContext } from "../../../contexts/zoom.context";
+import React from "react";
 
-const ZoomComponent = () => {
-  const { zoomUrl, isZoomed, setIsZoomed } = useContext(ZoomContext);
-  const handleZoom = () => setIsZoomed(false);
+const ZoomComponent = ({ url, isZoomed, handleZoom }) => {
 
   return (
     <div
@@ -11,13 +8,13 @@ const ZoomComponent = () => {
         isZoomed ? "" : "hidden"
       }`}
     >
-      <div className="scroll flex h-[90%] mx-3 md:mx-10 lg:mx-20 max-w-5xl justify-center overflow-y-scroll scroll-smooth whitespace-nowrap">
-        <img className=" m-auto" src={zoomUrl} />
+      <div className="scroll mx-3 flex h-[90%] max-w-5xl justify-center overflow-y-scroll scroll-smooth whitespace-nowrap md:mx-10 lg:mx-20">
+        <img className=" m-auto" src={url} />
       </div>
       <button
         onClick={handleZoom}
         type="button"
-        className="absolute top-5 md:top-12 right-5 md:right-12 border border-gray-700 ml-auto inline-flex items-center rounded-lg bg-gray-300 p-1.5 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
+        className="absolute top-5 right-5 ml-auto inline-flex items-center rounded-lg border border-gray-700 bg-gray-300 p-1.5 text-sm text-gray-900 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white md:top-12 md:right-12"
         data-modal-toggle="popup-modal"
       >
         <svg

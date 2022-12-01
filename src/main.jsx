@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./contexts/user.context";
 import { ProductsProvider } from "./contexts/products.context";
 import { CartProvider } from "./contexts/cart.context";
-import { ZoomProvider } from "./contexts/zoom.context";
-import "./index.css";
 import { HiddenMenuProvider } from "./contexts/hiddenMenu.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -16,11 +15,9 @@ root.render(
       <UserProvider>
         <ProductsProvider>
           <CartProvider>
-            <ZoomProvider>
-              <HiddenMenuProvider>
-                <App />
-              </HiddenMenuProvider>
-            </ZoomProvider>
+            <HiddenMenuProvider>
+              <App />
+            </HiddenMenuProvider>
           </CartProvider>
         </ProductsProvider>
       </UserProvider>

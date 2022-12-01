@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ZoomComponent from "./Cards/zoom.component";
 import ShopDisplay from "./shopDisplay.component"
 import IndividualCategory from "./Cards/individualCategory.component";
 
@@ -16,7 +15,6 @@ const Shop = () => {
         <Route path={"jackets"} element={<IndividualCategory target={"jackets"} />} />
         <Route path={"sneakers"} element={<IndividualCategory target={"sneakers"} />} />
       </Routes>
-      <ZoomComponent />
     </div>
   );
 };

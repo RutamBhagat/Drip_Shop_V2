@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { HiddenMenuContext } from "../../../contexts/hiddenMenu.context";
-import "./hamburger-button.styles.scss";
+import "./hamburger-button.styles.css";
 
 const HamburgerButtonComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
