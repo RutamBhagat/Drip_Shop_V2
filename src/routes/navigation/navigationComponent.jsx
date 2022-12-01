@@ -1,4 +1,4 @@
-import { Fragment, useContext, useRef } from "react";
+import { Fragment, useContext, useState } from "react";
 import { UserContext } from "../../contexts/user.context";
 import { Outlet, Link } from "react-router-dom";
 import HamburgerButtonComponent from "./hamburger-button/hamburger-button.component";
@@ -8,12 +8,15 @@ import "./navigation.styles.css";
 import ItemsInCart from "./itemsInCart.components";
 import QuickCheckout from "./quickCheckout.component";
 import { CartContext } from "../../contexts/cart.context";
-import { HiddenMenuContext } from "../../contexts/hiddenMenu.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { hiddenMenuIsOpen } = useContext(HiddenMenuContext);
   const { isCartOpen, setIsCartOpen, cartLength } = useContext(CartContext);
+  const [hiddenMenuIsOpen, setHiddenMenuIsOpen] = useState(false);
+
+  const handleHiddenMenu = () => {
+    setHiddenMenuIsOpen(!hiddenMenuIsOpen);
+  };
 
   const handleCartOpen = () => {
     setIsCartOpen(!isCartOpen);
@@ -28,7 +31,7 @@ const Navigation = () => {
       >
         <div className="bg-transparent">
           <div className="mx-auto flex items-center justify-between bg-transparent py-5 px-10 normal:px-3 md:px-10 lg:max-w-[90vw] xl:max-w-[80vw]">
-            <HamburgerButtonComponent className="ml-auto" />
+            <HamburgerButtonComponent className="ml-auto" hiddenMenuIsOpen={hiddenMenuIsOpen} handleHiddenMenu={handleHiddenMenu} />
             <Link
               className="text-md text-gray-200 hover:text-violet-700"
               to="/"
@@ -94,7 +97,7 @@ const Navigation = () => {
           </div>
         </div>
         {isCartOpen && <QuickCheckout />}
-        <HiddenMenu />
+        <HiddenMenu hiddenMenuIsOpen={hiddenMenuIsOpen} />
       </nav>
       <Outlet />
     </Fragment>
