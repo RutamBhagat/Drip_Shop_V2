@@ -25,7 +25,7 @@ const Checkout = () => {
           <h1 className="border-b-2 py-6 px-8 text-xl text-gray-600">
             Order Summary
           </h1>
-          <div className="max-h-[450px] overflow-y-scroll border-b">
+          <div className="max-h-[450px] overflow-y-scroll flex flex-col items-center border-b">
             {cartLength ? (
               cartItems.map((cartItem) => {
                 return <CheckoutCartItem cartItem={cartItem} />;
@@ -36,25 +36,25 @@ const Checkout = () => {
               </div>
             )}
           </div>
-          <div className="border-b px-8">
+          <div className="border-b px-8 mx-auto max-w-5xl">
             <div className="flex justify-between py-4 text-gray-600">
               <span>Subtotal</span>
-              <span className="font-semibold text-amber-900">${cartTotal}</span>
+              <span className="font-semibold text-xl text-amber-900">${cartTotal}</span>
             </div>
             <div className="flex justify-between py-4 text-gray-600">
               <span>Shipping</span>
-              <span className="font-semibold text-amber-900">Free</span>
+              <span className="font-semibold text-xl text-amber-900">Free</span>
             </div>
           </div>
-          <div className="flex justify-between px-8 py-8 text-xl font-semibold text-gray-600">
+          <div className="flex justify-between mx-auto max-w-5xl px-8 py-8 text-xl font-semibold text-gray-600">
             <span>Total</span>
-            <span>${cartTotal}</span>
+            <span className="text-xl">${cartTotal}</span>
           </div>
           {cartTotal ? (
             <div className="flex items-center justify-center p-5">
               <button
                 onClick={togglePaymentForm}
-                className="w-2/3 rounded-full bg-amber-600 px-4 py-3 text-center text-xl font-semibold text-white transition-colors focus:outline-none focus:ring md:w-1/3 lg:w-2/3"
+                className="w-2/3 max-w-2xl rounded-full bg-amber-600 px-4 py-3 text-center text-xl font-semibold text-white transition-colors focus:outline-none focus:ring md:w-1/3 lg:w-2/3"
               >
                 Proceed To Pay
               </button>

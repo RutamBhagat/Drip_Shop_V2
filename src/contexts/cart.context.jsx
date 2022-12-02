@@ -51,22 +51,16 @@ export const CartProvider = ({ children }) => {
   const [cartTotal, setCartTotal] = useState(0);
   const [cartLength, setCartLength] = useState(0);
 
-  useEffect(() => {
-    const newCartLength = cartItems.reduce(
-      (accumulator, inst) => accumulator + inst.quantity,
-      0
-    );
-    setCartLength(newCartLength);
-  }, [cartItems]);
-
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
     setCartTotal(cartTotal + productToAdd.price);
+    setCartLength(cartLength + 1);
   };
 
   const removeItemFromCart = (productToRemove) => {
     setCartItems(removeFromCartItem(cartItems, productToRemove));
     setCartTotal(cartTotal - (productToRemove.price * productToRemove.quantity));
+    setCartLength(cartLength - Number.parseInt(productToRemove.quantity));
   };
 
   const updateItemInCart = (productToUpdate, newQuantity) => {
@@ -76,6 +70,7 @@ export const CartProvider = ({ children }) => {
         productToUpdate.price * Number.parseInt(productToUpdate.quantity) +
         productToUpdate.price * Number.parseInt(newQuantity)
     );
+    setCartLength(cartLength - Number.parseInt(productToUpdate.quantity) + Number.parseInt(newQuantity));
   };
 
   const value = {
@@ -84,9 +79,9 @@ export const CartProvider = ({ children }) => {
     cartItems,
     addItemToCart,
     removeItemFromCart,
+    updateItemInCart,
     cartTotal,
-    cartLength,
-    updateItemInCart
+    cartLength
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

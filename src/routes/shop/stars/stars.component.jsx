@@ -1,4 +1,4 @@
-import shortid from "shortid";
+import React, { useId } from "react";
 
 const Stars = ({ stars }) => {
   const starArr = [];
@@ -10,7 +10,7 @@ const Stars = ({ stars }) => {
     }
     starArr.push(
       <svg
-        key={shortid.generate()}
+        key={useId()}
         fill={fillColor}
         stroke="currentColor"
         strokeLinecap="round"

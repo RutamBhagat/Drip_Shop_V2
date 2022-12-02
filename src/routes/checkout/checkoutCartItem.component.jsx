@@ -14,15 +14,14 @@ const CheckoutCartItem = ({ cartItem }) => {
   };
 
   return (
-    <div className="mx-1 my-1.5 flex rounded-lg shadow-lg">
+    <div className="mx-1 p-1 my-1.5 w-full max-w-5xl flex rounded-lg shadow-lg">
       <div className="flex w-full justify-between">
         <div
-          className="w-2/3 max-w-[250px]  bg-cover rounded-l-lg"
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-          }}
-        ></div>
-        <div className="flex w-2/3 max-w-[400px] h-[200px] flex-row justify-between p-3">
+          className="w-2/3 max-w-[250px] h-[250px]  rounded-l-lg"
+        >
+          <img className="w-full h-full object-cover" src={imageUrl} />
+        </div>
+        <div className="flex h-[200px] w-2/3 max-w-[400px] flex-row justify-between p-3">
           <div className="flex flex-col justify-between">
             <h1 className="text-xl font-bold text-gray-700">{name}</h1>
             <div className="relative w-[70px]">
@@ -34,16 +33,16 @@ const CheckoutCartItem = ({ cartItem }) => {
                 className="appearance-none rounded border border-gray-300 py-2 pl-3 pr-10 text-base focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-200"
               >
                 {[...Array(10).keys()].map((inst) => (
-                  <option value={inst + 1}>{inst + 1}</option>
+                  <option key={Math.random()} value={inst + 1}>{inst + 1}</option>
                 ))}
               </select>
               <span className="pointer-events-none absolute right-0 top-0 flex h-full w-8 items-center justify-center text-center text-gray-600">
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   className="h-4 w-4"
                   viewBox="0 0 24 24"
                 >
