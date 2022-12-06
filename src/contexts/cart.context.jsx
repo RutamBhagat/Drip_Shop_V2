@@ -2,13 +2,13 @@ import React, { createContext, useEffect, useReducer } from "react";
 
 export const CartContext = createContext({
   isCartOpen: null,
-  setIsCartOpen: () => {},
   cartItems: [],
+  cartTotal: null,
+  cartLength: null,
+  setIsCartOpen: () => {},
   addItemToCart: () => {},
   removeItemFromCart: () => {},
   updateItemInCart: () => {},
-  cartTotal: null,
-  cartLength: null,
 });
 
 export const CART_ACTION_TYPES = {
