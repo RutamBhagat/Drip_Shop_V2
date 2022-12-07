@@ -1,16 +1,17 @@
 import { Fragment, useContext, useState } from "react";
-import { UserContext } from "../../contexts/user.context";
 import { Outlet, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import HamburgerButtonComponent from "./hamburger-button/hamburger-button.component";
 import HiddenMenu from "./hidden-menu/hidden-menu.component";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
-import "./navigation.styles.css";
 import ItemsInCart from "./itemsInCart.components";
 import QuickCheckout from "./quickCheckout.component";
 import { CartContext } from "../../contexts/cart.context";
+import "./navigation.styles.css";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector((state) => state.user.currentUser)
   const { isCartOpen, setIsCartOpen, cartLength } = useContext(CartContext);
   const [hiddenMenuIsOpen, setHiddenMenuIsOpen] = useState(false);
 
