@@ -5,14 +5,14 @@ import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 // import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils";
 // import SHOP_DATA from "../shop-data"
 
-export const ProductsContext = createContext({
-  products: {},
-  setProducts: () => null,
+export const CategoriesContext  = createContext({
+  categoriesMap: {},
+  setCategoriesMap: () => null,
 });
 
-export const ProductsProvider = ({ children }) => {
-  const [products, setProducts] = useState({});
-  const value = { products, setProducts };
+export const CategoriesProvider = ({ children }) => {
+  const [categoriesMap, setCategoriesMap] = useState({});
+  const value = { categoriesMap, setCategoriesMap };
   
   useEffect(() => {
     // This is for setting up shop items to firestore db first time
@@ -20,15 +20,15 @@ export const ProductsProvider = ({ children }) => {
 
     const getCategoriesMap = async () => {
       const categoryMap = getCategoriesAndDocuments()
-      categoryMap.then(res => setProducts(res))
+      categoryMap.then(res => setCategoriesMap(res))
     } 
 
     getCategoriesMap()
   }, []);
 
   return (
-    <ProductsContext.Provider value={value}>
+    <CategoriesContext.Provider value={value}>
       {children}
-    </ProductsContext.Provider>
+    </CategoriesContext.Provider>
   );
 };

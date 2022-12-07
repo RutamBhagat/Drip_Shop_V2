@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ProductsContext } from "../../contexts/products.context";
+import { CategoriesContext } from "../../contexts/categories.context";
 import "./shopDisplay.styles.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,8 +12,8 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper";
 
 const shopDisplay = () => {
-  const { products } = useContext(ProductsContext);
-  const items = Object.keys(products);
+  const { categoriesMap } = useContext(CategoriesContext);
+  const items = Object.keys(categoriesMap);
   return (
     <Swiper
       effect={"coverflow"}
@@ -37,7 +37,7 @@ const shopDisplay = () => {
             key={item}
             className="h-[500px] w-[300px] rounded-xl border border-black bg-cover bg-center bg-no-repeat drop-shadow-lg sm:h-[550px] sm:w-[350px] md:h-[600px] md:w-[400px]"
             style={{
-              backgroundImage: `url(${products[item].displayImg})`,
+              backgroundImage: `url(${categoriesMap[item].displayImg})`,
             }}
           >
             <Link to={item.toLowerCase()}>

@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { ProductsContext } from "../../../contexts/products.context";
+import { CategoriesContext } from "../../../contexts/categories.context";
 import IndividualComponent from "./individualCard.component";
 
 const IndividualCategory = ({target}) => {
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
   
   return (
     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
-      {products[target] && products[target].items.map((product) => {
+      {categoriesMap[target] && categoriesMap[target].items.map((product) => {
           return (
             <IndividualComponent key={product.id} product={product} />
           );
