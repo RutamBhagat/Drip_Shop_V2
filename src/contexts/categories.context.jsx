@@ -7,12 +7,11 @@ import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 export const CategoriesContext  = createContext({
   categoriesMap: {},
-  setCategoriesMap: () => null,
 });
 
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
-  const value = { categoriesMap, setCategoriesMap };
+  const value = { categoriesMap };
   
   useEffect(() => {
     // This is for setting up shop items to firestore db first time

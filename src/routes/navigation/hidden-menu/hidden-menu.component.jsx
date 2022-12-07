@@ -1,17 +1,18 @@
-import React, { useContext } from "react";
-import { UserContext } from "../../../contexts/user.context";
+import React from "react";
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from '../../../store/user/user.selector';
 
 const HiddenMenu = ({hiddenMenuIsOpen}) => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <div
       id="hidden-menu"
       className={`absolute left-0 right-0 bottom-0 ${hiddenMenuIsOpen ? "" : "hidden"} h-[90%] w-screen drop-shadow-md normal:hidden`}
     >
-      <div className="flex h-full flex-col w-[175px] rounded-tr-3xl bg-gray-700 px-5 py-2">
+      <div className="flex h-full flex-col w-[200px] rounded-tr-3xl bg-gray-700 px-5 py-2">
         <Link className="text-md my-2 flex" to="/">
           <div className="card-zoom mr-3 h-12 w-12 rounded-2xl bg-white drop-shadow-md hover:bg-gray-300">
             <i className="fa-solid fa-house card-zoom-text text-lg text-gray-700 opacity-100 hover:text-violet-900"></i>

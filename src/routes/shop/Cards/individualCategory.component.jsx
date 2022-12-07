@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import { CategoriesContext } from "../../../contexts/categories.context";
+import React from "react";
 import IndividualComponent from "./individualCard.component";
+import { useSelector } from "react-redux";
+import { selectCategoriesMap } from '../../../store/categories/category.selector';
 
 const IndividualCategory = ({target}) => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap);
   
   return (
     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
