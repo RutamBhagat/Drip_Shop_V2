@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import ShopDisplay from "./shopDisplay.component";
 import IndividualCategory from "./Cards/individualCategory.component";
 import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
-import { setCategoriesMap } from "../../store/categories/category.actions";
+import { setCategories } from "../../store/categories/category.actions";
 
 const Shop = () => {
   const dispatch = useDispatch()
@@ -14,8 +14,8 @@ const Shop = () => {
     // addCollectionAndDocuments("categories", SHOP_DATA)
 
     const getCategoriesMap = async () => {
-      const categoryMap = getCategoriesAndDocuments();
-      categoryMap.then((res) => dispatch(setCategoriesMap(res)));
+      const categoriesArray = await getCategoriesAndDocuments();
+      dispatch(setCategories(categoriesArray))
     };
 
     getCategoriesMap();
