@@ -16,6 +16,7 @@
     "react-router-dom": "^6.4.3",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
+    "reselect": "^4.1.7",
     "swiper": "^8.4.5"
   },
   "devDependencies": {
