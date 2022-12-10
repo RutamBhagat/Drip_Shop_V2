@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../contexts/cart.context";
+import { useSelector, useDispatch } from "react-redux";
+import { setIsCartOpen } from "../../store/cart/cart.action";
+import { selectIsCartOpen, selectCartCount } from "../../store/cart/cart.selector";
+
 
 const EmptyCart = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const dispatch = useDispatch()
+  const isCartOpen = useSelector(selectIsCartOpen)
+  const cartLength = useSelector(selectCartCount)
 
   const handleCartOpen = () => {
-    setIsCartOpen(false);
+    dispatch(setIsCartOpen(false));
   };
 
   return (
