@@ -2,9 +2,7 @@ import { CART_ACTION_TYPES } from "./cart.types";
 import { createAction } from "../../utils/reducer/reducer.utils";
 
 
-export const setIsCartOpen = (toggleValue) => {
-    createAction(CART_ACTION_TYPES.TOGGLE_CART, toggleValue)
-};
+export const setIsCartOpen = (toggleValue) => createAction(CART_ACTION_TYPES.TOGGLE_CART, toggleValue)
 
 export const addItemToCart = (cartItems, productToAdd) => {
     const addCartItem = (cartItems, productToAdd) => {

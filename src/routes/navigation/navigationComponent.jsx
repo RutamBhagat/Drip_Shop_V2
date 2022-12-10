@@ -1,26 +1,31 @@
-import { Fragment, useContext, useState } from "react";
+import "./navigation.styles.css";
+import { Fragment, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 import HamburgerButtonComponent from "./hamburger-button/hamburger-button.component";
 import HiddenMenu from "./hidden-menu/hidden-menu.component";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
 import ItemsInCart from "./itemsInCart.components";
 import QuickCheckout from "./quickCheckout.component";
-import { CartContext } from "../../contexts/cart.context";
-import "./navigation.styles.css";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectIsCartOpen, selectCartCount } from "../../store/cart/cart.selector";
+import { setIsCartOpen } from "../../store/cart/cart.action";
+
+
 
 const Navigation = () => {
-  const currentUser = useSelector(selectCurrentUser)
-  const { isCartOpen, setIsCartOpen, cartLength } = useContext(CartContext);
   const [hiddenMenuIsOpen, setHiddenMenuIsOpen] = useState(false);
+  const dispatch = useDispatch()
+  const currentUser = useSelector(selectCurrentUser)
+  const isCartOpen = useSelector(selectIsCartOpen)
+  const cartLength = useSelector(selectCartCount)
 
   const handleHiddenMenu = () => {
     setHiddenMenuIsOpen(!hiddenMenuIsOpen);
   };
 
   const handleCartOpen = () => {
-    setIsCartOpen(!isCartOpen);
+    dispatch(setIsCartOpen(!isCartOpen));
   };
 
   return (
