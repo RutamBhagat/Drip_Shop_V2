@@ -11,7 +11,7 @@ import { CartContext } from "../../contexts/cart.context";
 import "./navigation.styles.css";
 
 const Navigation = () => {
-  const currentUser = useSelector((state) => state.user.currentUser)
+  const currentUser = useSelector(selectCurrentUser)
   const { isCartOpen, setIsCartOpen, cartLength } = useContext(CartContext);
   const [hiddenMenuIsOpen, setHiddenMenuIsOpen] = useState(false);
 

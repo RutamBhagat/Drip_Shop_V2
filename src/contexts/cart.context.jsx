@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { createAction } from '../utils/firebase/reducer/reducer.utils';
+import { createAction } from "../utils/reducer/reducer.utils";
 
 export const CartContext = createContext({
   isCartOpen: null,
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
       cartLength: length,
       cartTotal: total,
     };
-    dispatch(createAction(CART_ACTION_TYPES.SET_CART_ITEMS, payload))
+    dispatch(createAction(CART_ACTION_TYPES.SET_CART_ITEMS, payload));
   };
 
   const addItemToCart = (productToAdd) => {
@@ -84,7 +84,7 @@ export const CartProvider = ({ children }) => {
       return [...cartItems, { ...productToAdd, quantity: 1 }];
     };
 
-    const newCartItems = addCartItem(cartItems, productToAdd)
+    const newCartItems = addCartItem(cartItems, productToAdd);
     updateCartItemsReducer(newCartItems);
   };
 
@@ -95,7 +95,7 @@ export const CartProvider = ({ children }) => {
       return [...cartItems];
     };
 
-    const newCartItems = removeFromCartItem(cartItems, productToRemove)
+    const newCartItems = removeFromCartItem(cartItems, productToRemove);
     updateCartItemsReducer(newCartItems);
   };
 
@@ -111,7 +111,11 @@ export const CartProvider = ({ children }) => {
       });
     };
 
-    const newCartItems = updateCartItem(cartItems, productToUpdate, newQuantity)
+    const newCartItems = updateCartItem(
+      cartItems,
+      productToUpdate,
+      newQuantity
+    );
     updateCartItemsReducer(newCartItems);
   };
 
