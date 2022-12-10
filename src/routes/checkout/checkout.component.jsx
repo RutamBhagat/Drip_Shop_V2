@@ -1,10 +1,15 @@
-import React, { useContext, useRef } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import React, { useRef } from "react";
 import CheckoutCartItem from "./checkoutCartItem.component";
 import EmptyCart from "./emptyCart.component";
+import { useSelector } from "react-redux";
+import { selectCartCount, selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
+
 
 const Checkout = () => {
-  const { cartItems, cartTotal, cartLength } = useContext(CartContext);
+  const cartLength = useSelector(selectCartCount)
+  const cartItems = useSelector(selectCartItems)
+  const cartTotal = useSelector(selectCartTotal)
+
   const warningRef = useRef()
   const paymentFormRef = useRef()
   const summeryRef = useRef()

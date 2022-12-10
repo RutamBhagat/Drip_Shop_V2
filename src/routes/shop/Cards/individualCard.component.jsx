@@ -1,14 +1,18 @@
-import React, { useContext, useState, Fragment } from "react";
-import { CartContext } from "../../../contexts/cart.context";
+import React, { useState, Fragment } from "react";
 import Stars from "../stars/stars.component";
 import ZoomComponent from "./zoom.component";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCartItems } from "../../../store/cart/cart.selector";
+import { addItemToCart } from "../../../store/cart/cart.action";
+
 
 const IndividualComponent = ({ product }) => {
-  const { addItemToCart } = useContext(CartContext);
   const [isZoomed, setIsZoomed] = useState(false);
+  const cartItems = useSelector(selectCartItems)
+  const dispatch = useDispatch()
 
   const handleAddItemToCart = () => {
-    addItemToCart(product);
+    dispatch(addItemToCart(cartItems, product))
   };
 
   const handleZoom = () => {

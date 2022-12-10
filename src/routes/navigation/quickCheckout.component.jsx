@@ -8,12 +8,12 @@ import { selectIsCartOpen, selectCartCount, selectCartItems, selectCartTotal } f
 
 
 const QuickCheckout = () => {
-  const dispatch = useDispatch()
   const isCartOpen = useSelector(selectIsCartOpen)
   const cartLength = useSelector(selectCartCount)
   const cartItems = useSelector(selectCartItems)
   const cartTotal = useSelector(selectCartTotal)
-
+  const dispatch = useDispatch()
+  
   const handleCartOpen = () => {
     dispatch(setIsCartOpen(!isCartOpen));
   };
