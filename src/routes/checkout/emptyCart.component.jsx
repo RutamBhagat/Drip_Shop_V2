@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setIsCartOpen } from "../../store/cart/cart.action";
-import { selectIsCartOpen, selectCartCount } from "../../store/cart/cart.selector";
 
 
 const EmptyCart = () => {
   const dispatch = useDispatch()
-  const isCartOpen = useSelector(selectIsCartOpen)
-  const cartLength = useSelector(selectCartCount)
 
   const handleCartOpen = () => {
     dispatch(setIsCartOpen(false));

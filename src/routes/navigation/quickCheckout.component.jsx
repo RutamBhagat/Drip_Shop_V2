@@ -1,15 +1,21 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
+import React from "react";
 import { Link } from "react-router-dom";
 import CheckoutCartItem from "../checkout/checkoutCartItem.component";
 import EmptyCart from "../checkout/emptyCart.component";
+import { useSelector, useDispatch } from "react-redux";
+import { setIsCartOpen } from "../../store/cart/cart.action";
+import { selectIsCartOpen, selectCartCount, selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
+
 
 const QuickCheckout = () => {
-  const { isCartOpen, setIsCartOpen, cartItems, cartTotal, cartLength } =
-    useContext(CartContext);
+  const dispatch = useDispatch()
+  const isCartOpen = useSelector(selectIsCartOpen)
+  const cartLength = useSelector(selectCartCount)
+  const cartItems = useSelector(selectCartItems)
+  const cartTotal = useSelector(selectCartTotal)
 
   const handleCartOpen = () => {
-    setIsCartOpen(!isCartOpen);
+    dispatch(setIsCartOpen(!isCartOpen));
   };
 
   return (
