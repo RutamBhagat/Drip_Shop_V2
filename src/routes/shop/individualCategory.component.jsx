@@ -1,7 +1,7 @@
 import React from "react";
-import IndividualComponent from "./individualCard.component";
+import IndividualComponent from "./Cards/individualCard.component";
 import { useSelector } from "react-redux";
-import { selectCategories } from '../../../store/categories/category.selector';
+import { selectCategories } from '../../store/categories/category.selector';
 
 const IndividualCategory = ({target}) => {
   const categoriesMap = useSelector(selectCategories);

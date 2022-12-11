@@ -20,3 +20,8 @@ export const selectCategories = (
         }
     )
 )
+
+export const selectCategoriesIsLoading = createSelector(
+    [selectCategoryReducer],
+    (categoriesReducer) => categoriesReducer.isLoading
+)
