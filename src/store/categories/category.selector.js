@@ -5,11 +5,18 @@ const selectCategoryReducer = (state) => state.categories
 
 export const selectCategoriesArr = createSelector(
     [selectCategoryReducer],
-    (categoriesSlice) => categoriesSlice.categories
+    (categoriesReducer) => categoriesReducer.categories
 )
 
-export const selectCategories = (createSelector([selectCategoriesArr], (categories) => categories.reduce((accumulator, category) => {
-    const { title, items, displayImg } = category
-    accumulator[title.toLowerCase()] = { items, displayImg }
-    return accumulator
-}, {})))
+export const selectCategories = (
+    createSelector(
+        [selectCategoriesArr],
+        (categories) => {
+            return categories.reduce((accumulator, category) => {
+                const { title, items, displayImg } = category
+                accumulator[title.toLowerCase()] = { items, displayImg }
+                return accumulator
+            }, {})
+        }
+    )
+)

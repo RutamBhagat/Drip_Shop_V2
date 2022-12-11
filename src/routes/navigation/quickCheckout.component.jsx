@@ -38,7 +38,7 @@ const QuickCheckout = () => {
         <div className="flex h-1/5 w-full flex-col items-center justify-between border border-t-gray-400 p-3">
           <div className="flex w-full justify-between">
             <h2 className="text-gray-700">Subtotal:</h2>
-            <h2 className="font-bold text-gray-900">$ {cartTotal ? cartTotal : 0}</h2>
+            <h2 className="font-bold text-gray-900">$ {cartTotal}</h2>
           </div>
           <Link onClick={handleCartOpen} className="w-full" to="/checkout">
             <button className="text-md mt-5 w-full bg-gray-900 py-2 text-gray-300 hover:bg-gray-700">
