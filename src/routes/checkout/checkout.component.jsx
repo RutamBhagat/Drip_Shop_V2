@@ -33,7 +33,7 @@ const Checkout = () => {
           <div className="max-h-[450px] overflow-y-scroll flex flex-col items-center border-b">
             {cartLength ? (
               cartItems.map((cartItem) => {
-                return <CheckoutCartItem cartItem={cartItem} />;
+                return <CheckoutCartItem key={Math.random()} cartItem={cartItem} />;
               })
             ) : (
               <div className="py-20 lg:py-44">
