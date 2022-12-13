@@ -1,7 +1,6 @@
 import "./navigation.styles.css";
 import { Fragment, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
 import HamburgerButtonComponent from "./hamburger-button/hamburger-button.component";
 import HiddenMenu from "./hidden-menu/hidden-menu.component";
 import ItemsInCart from "./itemsInCart.components";
@@ -10,15 +9,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectIsCartOpen, selectCartCount } from "../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../store/cart/cart.action";
+import { signOutStart } from "../../store/user/user.action";
 
 
 
 const Navigation = () => {
-  const [hiddenMenuIsOpen, setHiddenMenuIsOpen] = useState(false);
   const dispatch = useDispatch()
+  const [hiddenMenuIsOpen, setHiddenMenuIsOpen] = useState(false);
   const currentUser = useSelector(selectCurrentUser)
   const isCartOpen = useSelector(selectIsCartOpen)
   const cartLength = useSelector(selectCartCount)
+  const signOutUser = () => dispatch(signOutStart())
 
   const handleHiddenMenu = () => {
     setHiddenMenuIsOpen(!hiddenMenuIsOpen);

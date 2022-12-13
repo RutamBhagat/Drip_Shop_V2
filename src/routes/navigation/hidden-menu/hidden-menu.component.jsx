@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { signOutUser } from "../../../utils/firebase/firebase.utils";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from '../../../store/user/user.selector';
+import { signOutStart } from "../../../store/user/user.action";
 
 const HiddenMenu = ({hiddenMenuIsOpen}) => {
+  const dispatch = useDispatch()
   const currentUser = useSelector(selectCurrentUser);
+  const signOutUser = () => dispatch(signOutStart())
 
   return (
     <div

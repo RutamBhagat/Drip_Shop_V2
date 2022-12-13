@@ -1,11 +1,12 @@
 import React, { useState, Fragment } from "react";
-import { Link } from "react-router-dom";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { emailSignInStart, signUpStart } from "../../store/user/user.action";
+
 
 const Register = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,17 +20,16 @@ const Register = () => {
     }
 
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserDocumentFromAuth(user, {
-        displayName,
-      });
+      dispatch(signUpStart(email, password, displayName))
       setDisplayName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+      // SetTimeout is necessary otherwise you will get an error 
+      setTimeout(() => {
+        dispatch(emailSignInStart(email, password))
+        navigate("/shop");
+      }, 1000);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");

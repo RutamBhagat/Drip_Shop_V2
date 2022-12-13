@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import Spinner from "../../components/spinner/spinner.components";
 import { useDispatch, useSelector } from "react-redux";
 import ShopDisplay from "./shopDisplay.component";
 import IndividualCategory from "./individualCategory.component";
-import { fetchCategoriesAsync } from "../../store/categories/category.actions";
 import { selectCategoriesIsLoading } from "../../store/categories/category.selector";
-import Spinner from "../../components/spinner/spinner.components";
+import { fetchCategoriesStart } from '../../store/categories/category.actions';
 
 const Shop = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectCategoriesIsLoading);
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (
