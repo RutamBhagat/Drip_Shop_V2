@@ -38,7 +38,7 @@ export const removeItemFromCart = (cartItems, productToRemove) => {
 };
 
 export const emptyItemsInCart = () => {
-    const newCartItems = {};
+    const newCartItems = [];
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
