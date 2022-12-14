@@ -75,7 +75,7 @@ const Checkout = () => {
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         dispatch(emptyItemsInCart());
-        <ErrorComponent errormessage={"Payment Failed"} />;
+        <ErrorComponent errormessage={"Payment Successful"} />;
       }
     }
   };
