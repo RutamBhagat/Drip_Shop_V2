@@ -12,7 +12,7 @@ import Shipping from "./checkoutForm/shipping/shipping.component";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { emptyItemsInCart } from "../../store/cart/cart.action";
 import ErrorComponent from "../../components/errorComponent/error.component";
-import EmptyCart from './emptyCart.component';
+import EmptyCart from "./emptyCart.component";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -192,7 +192,7 @@ const Checkout = () => {
           <button
             type="submit"
             className={`submit-button w-full rounded-full bg-amber-600 px-4 py-3 text-xl font-semibold text-white transition-colors focus:outline-none focus:ring ${
-              isProcessingPayment ? "hidden" : ""
+              isProcessingPayment || !cartLength ? "hidden" : ""
             }`}
           >
             Pay ₹{cartTotal}
