@@ -105,8 +105,8 @@ const Register = () => {
               <input
                 onChange={handleChange}
                 required
-                id="confirm-password"
-                name="confirm-password"
+                id="confirmPassword"
+                name="confirmPassword"
                 type="password"
                 value={confirmPassword}
                 className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
