@@ -43,7 +43,7 @@ const IndividualComponent = ({ product }) => {
             </div>
           </div>
           <div className="item-center mt-3 flex justify-between">
-            <h1 className="text-xl font-bold text-gray-700">{`$${product.price}`}</h1>
+            <h1 className="text-xl font-bold text-gray-700">{`₹${product.price}`}</h1>
             <button
               onClick={handleAddItemToCart}
               className="ml-1 rounded bg-gray-900 px-3 py-2 text-xs font-bold uppercase text-white hover:bg-gray-700"

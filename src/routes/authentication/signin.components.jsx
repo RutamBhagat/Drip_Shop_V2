@@ -6,11 +6,27 @@ import {
   googleSignInStart,
 } from "../../store/user/user.action";
 
+
+const defaultFormFields = {
+  email: '',
+  password: '',
+};
+
 const Signin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { email, password } = formFields;
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
 
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
@@ -25,8 +41,7 @@ const Signin = () => {
 
     try {
       dispatch(emailSignInStart(email, password));
-      setEmail("");
-      setPassword("");
+      resetFormFields()
       navigate("/shop");
     } catch (error) {
       if (
@@ -66,9 +81,7 @@ const Signin = () => {
               <p className="pb-2 font-medium text-slate-700">Email address</p>
               <input
                 required
-                onChange={(event) => {
-                  setEmail(event.target.value);
-                }}
+                onChange={handleChange}
                 id="email"
                 name="email"
                 type="email"
@@ -81,9 +94,7 @@ const Signin = () => {
               <p className="pb-2 font-medium text-slate-700">Password</p>
               <input
                 required
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                }}
+                onChange={handleChange}
                 id="password"
                 name="password"
                 type="password"
