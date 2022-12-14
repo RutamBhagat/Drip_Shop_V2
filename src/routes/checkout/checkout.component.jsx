@@ -11,9 +11,10 @@ import Warning from "./checkoutForm/warning/warning.component";
 import Shipping from "./checkoutForm/shipping/shipping.component";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { emptyItemsInCart } from "../../store/cart/cart.action";
+import ErrorComponent from "../../components/errorComponent/ErrorComponent";
 
 const Checkout = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const cartLength = useSelector(selectCartCount);
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
@@ -70,11 +71,11 @@ const Checkout = () => {
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      <ErrorComponent errormessage={"Payment Failed"} />;
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        dispatch(emptyItemsInCart())
-        alert("Payment Successful");
+        dispatch(emptyItemsInCart());
+        <ErrorComponent errormessage={"Payment Failed"} />;
       }
     }
   };
