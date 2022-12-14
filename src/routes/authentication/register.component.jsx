@@ -64,8 +64,8 @@ const Register = () => {
               <input
                 onChange={handleChange}
                 required
-                id="name"
-                name="name"
+                id="displayName"
+                name="displayName"
                 type="text"
                 value={displayName}
                 className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
