@@ -73,8 +73,8 @@ const Checkout = () => {
       alert(paymentResult.error);
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
+        dispatch(emptyItemsInCart())
         alert("Payment Successful");
-        dispatch(emptyItemsInCart)
       }
     }
   };
