@@ -17,7 +17,7 @@ const Shipping = () => {
   
   const fakeFormFields = {
     name: currentUser ? currentUser.displayName : "Anonymous",
-    email: currentUser ? currentUser.displayName : "namelessone@gmail.com",
+    email: currentUser ? currentUser.email : "namelessone@gmail.com",
     address: "Malbar Hill S.O.",
     city: "Mumbai",
     state: "MAHARASHTRA",
