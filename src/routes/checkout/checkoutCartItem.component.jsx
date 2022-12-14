@@ -62,7 +62,7 @@ const CheckoutCartItem = ({ cartItem }) => {
             ></i>
 
             <h1 className="text-normal font-semibold text-amber-900 md:text-xl">
-              ${price * quantity}
+              ₹{price * quantity}
             </h1>
           </div>
         </div>

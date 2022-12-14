@@ -1,39 +1,122 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import CheckoutCartItem from "./checkoutCartItem.component";
+import { useDispatch, useSelector } from "react-redux";
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import {
+  selectCartCount,
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector";
+import Warning from "./checkoutForm/warning/warning.component";
+import Shipping from "./checkoutForm/shipping/shipping.component";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { emptyItemsInCart } from "../../store/cart/cart.action";
+import ErrorComponent from "../../components/errorComponent/error.component";
 import EmptyCart from "./emptyCart.component";
-import { useSelector } from "react-redux";
-import { selectCartCount, selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
-
 
 const Checkout = () => {
-  const cartLength = useSelector(selectCartCount)
-  const cartItems = useSelector(selectCartItems)
-  const cartTotal = useSelector(selectCartTotal)
+  const dispatch = useDispatch();
+  const cartLength = useSelector(selectCartCount);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const currentUser = useSelector(selectCurrentUser);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
-  const warningRef = useRef()
-  const paymentFormRef = useRef()
-  const summeryRef = useRef()
-
-  const removeWarning = () => {
-    warningRef.current.classList.toggle("hidden")
-  };
+  const paymentFormRef = useRef();
+  const summeryRef = useRef();
 
   const togglePaymentForm = () => {
     paymentFormRef.current.classList.toggle("hidden");
-    summeryRef.current.classList.toggle("lg:grid-cols-3")
+    summeryRef.current.classList.toggle("lg:grid-cols-3");
+  };
+
+  const showAlert = (id) => {
+    const alert = document.querySelector(`#${id}`);
+    alert.classList.toggle("hidden");
+  };
+
+  const handleFake = () => {
+    showAlert("popup-modal-credit-card");
+  };
+
+  const stripe = useStripe();
+  const elements = useElements();
+  const paymentHandler = async (event) => {
+    event.preventDefault();
+    if (!stripe || !elements) {
+      return;
+    }
+
+    setIsProcessingPayment(true);
+
+    const response = await fetch("/.netlify/functions/create-payment-intent", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: cartTotal * 100,
+      }),
+    }).then((res) => res.json());
+
+    const {
+      paymentIntent: { client_secret },
+    } = response;
+
+    const paymentResult = await stripe.confirmCardPayment(client_secret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: currentUser ? currentUser.displayName : "Guest",
+        },
+      },
+    });
+
+    setIsProcessingPayment(false);
+
+    if (paymentResult.error) {
+      showAlert("popup-modal-failed");
+    } else {
+      if (paymentResult.paymentIntent.status === "succeeded") {
+        dispatch(emptyItemsInCart());
+        showAlert("popup-modal-success");
+      }
+    }
   };
 
   return (
     <div className="pt-24">
+      <div className="flex flex-row">
+        <ErrorComponent
+          message={`
+          Card: 4000003560000008 |
+          Exp Date: any future date |
+          CVC: any 3 digit number`}
+          id="popup-modal-credit-card"
+          showAlert={showAlert}
+        />
+        <ErrorComponent
+          message={"Payment Successful"}
+          id="popup-modal-success"
+          showAlert={showAlert}
+        />
+        <ErrorComponent
+          message={"Payment Failed"}
+          id="popup-modal-failed"
+          showAlert={showAlert}
+        />
+      </div>
       <div ref={summeryRef} className="grid min-h-screen">
         <div className="col-span-1 mx-3 bg-white sm:mx-12 lg:order-2 lg:mx-0">
           <h1 className="border-b-2 py-6 px-8 text-xl text-gray-600">
             Order Summary
           </h1>
-          <div className="max-h-[450px] overflow-y-scroll flex flex-col items-center border-b">
+          <div className="flex max-h-[450px] flex-col items-center overflow-y-scroll border-b">
             {cartLength ? (
               cartItems.map((cartItem) => {
-                return <CheckoutCartItem key={Math.random()} cartItem={cartItem} />;
+                return (
+                  <CheckoutCartItem key={Math.random()} cartItem={cartItem} />
+                );
               })
             ) : (
               <div className="py-20 lg:py-44">
@@ -41,19 +124,21 @@ const Checkout = () => {
               </div>
             )}
           </div>
-          <div className="border-b px-8 mx-auto max-w-5xl">
+          <div className="mx-auto max-w-5xl border-b px-8">
             <div className="flex justify-between py-4 text-gray-600">
               <span>Subtotal</span>
-              <span className="font-semibold text-xl text-amber-900">${cartTotal}</span>
+              <span className="text-xl font-semibold text-amber-900">
+                ₹{cartTotal}
+              </span>
             </div>
             <div className="flex justify-between py-4 text-gray-600">
               <span>Shipping</span>
-              <span className="font-semibold text-xl text-amber-900">Free</span>
+              <span className="text-xl font-semibold text-amber-900">Free</span>
             </div>
           </div>
-          <div className="flex justify-between mx-auto max-w-5xl px-8 py-8 text-xl font-semibold text-gray-600">
+          <div className="mx-auto flex max-w-5xl justify-between px-8 py-8 text-xl font-semibold text-gray-600">
             <span>Total</span>
-            <span className="text-xl">${cartTotal}</span>
+            <span className="text-xl">₹{cartTotal}</span>
           </div>
           {cartTotal ? (
             <div className="flex items-center justify-center p-5">
@@ -68,182 +153,51 @@ const Checkout = () => {
             ""
           )}
         </div>
-        <div
+
+        {/* PAYMENT_FORM */}
+        <form
+          onSubmit={paymentHandler}
+          action=""
           ref={paymentFormRef}
           className="col-span-1 hidden space-y-8 bg-gray-800 px-3 sm:px-12 lg:col-span-2"
         >
-          <div
-            ref={warningRef}
-            className="relative mt-8 flex flex-col rounded-md bg-white p-4 shadow sm:flex-row sm:items-center"
-          >
-            <div className="flex w-full flex-row items-center border-b pb-4 sm:w-auto sm:border-b-0 sm:pb-0">
-              <div className="text-yellow-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 sm:h-5 sm:w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className="ml-3 text-sm font-medium">Checkout</div>
-            </div>
-            <div className="mt-4 text-sm tracking-wide text-gray-500 sm:mt-0 sm:ml-4">
-              Complete your shipping and payment details below.
-            </div>
-            <div
-              onClick={removeWarning}
-              className="absolute right-4 top-4 ml-auto cursor-pointer text-gray-400 hover:text-gray-800 sm:relative sm:top-auto sm:right-auto"
-            >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </div>
-          </div>
-          <div className="rounded-md">
-            <form method="POST" action="">
-              <section>
-                <h2 className="my-2 text-lg font-semibold uppercase tracking-wide text-gray-300">
-                  Shipping & Billing Information
-                </h2>
-                <fieldset className="mb-3 rounded bg-white text-gray-600 shadow-lg">
-                  <label className="flex h-12 items-center border-b border-gray-200 py-3">
-                    <span className="px-2 text-right">Name</span>
-                    <input
-                      name="name"
-                      className="px-3 focus:outline-none"
-                      placeholder="Anonymous"
-                      required=""
-                    />
-                  </label>
-                  <label className="flex h-12 items-center border-b border-gray-200 py-3">
-                    <span className="px-2 text-right">Email</span>
-                    <input
-                      name="email"
-                      type="email"
-                      className="px-3 focus:outline-none"
-                      placeholder="namelessone@gmail.com"
-                      required=""
-                    />
-                  </label>
-                  <label className="flex h-12 items-center border-b border-gray-200 py-3">
-                    <span className="px-2 text-right">Address</span>
-                    <input
-                      name="address"
-                      className="px-3 focus:outline-none"
-                      placeholder="Malabar Hill S.O."
-                    />
-                  </label>
-                  <label className="flex h-12 items-center border-b border-gray-200 py-3">
-                    <span className="px-2 text-right">City</span>
-                    <input
-                      name="city"
-                      className="px-3 focus:outline-none"
-                      placeholder="Mumbai"
-                    />
-                  </label>
-                  <label className="inline-flex w-2/4 border-gray-200 py-3">
-                    <span className="px-2 text-right">State</span>
-                    <input
-                      name="state"
-                      className="px-3 focus:outline-none"
-                      placeholder="MAHARASHTRA"
-                    />
-                  </label>
-                  <label className="flex items-center border-t border-gray-200 py-3 xl:inline-flex xl:w-1/4 xl:border-none">
-                    <span className="xl:text-none px-2 text-right xl:px-0">
-                      ZIP
-                    </span>
-                    <input
-                      name="postal_code"
-                      className="px-3 focus:outline-none"
-                      placeholder="400006"
-                    />
-                  </label>
-                  <label className="select relative flex h-12 items-center border-t border-gray-200 py-3">
-                    <span className="px-2 text-right">Country</span>
-                    <div
-                      id="country"
-                      className="flex w-full items-center px-3 focus:outline-none"
-                    >
-                      <select
-                        name="country"
-                        value={"IN"}
-                        className="flex-1 cursor-pointer appearance-none border-none bg-transparent focus:outline-none"
-                      >
-                        <option value="AU">Australia</option>
-                        <option value="BE">Belgium</option>
-                        <option value="BR">Brazil</option>
-                        <option value="CA">Canada</option>
-                        <option value="CN">China</option>
-                        <option value="DK">Denmark</option>
-                        <option value="FI">Finland</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                        <option value="HK">Hong Kong</option>
-                        <option value="IN">India</option>
-                        <option value="IE">Ireland</option>
-                        <option value="IT">Italy</option>
-                        <option value="JP">Japan</option>
-                        <option value="LU">Luxembourg</option>
-                        <option value="MX">Mexico</option>
-                        <option value="NL">Netherlands</option>
-                        <option value="PL">Poland</option>
-                        <option value="PT">Portugal</option>
-                        <option value="SG">Singapore</option>
-                        <option value="ES">Spain</option>
-                        <option value="TN">Tunisia</option>
-                        <option value="GB">United Kingdom</option>
-                        <option value="US" defaultValue="selected">
-                          United States
-                        </option>
-                      </select>
-                    </div>
-                  </label>
-                </fieldset>
-              </section>
-            </form>
-          </div>
-          <div className="rounded-md">
+          <Warning />
+
+          {/* SHIPPING  */}
+          <Shipping />
+
+          {/* BILLING  */}
+          <div className="rounded-lg">
             <section>
-              <h2 className="my-2 text-lg font-semibold uppercase tracking-wide text-gray-300">
-                Payment Information
-              </h2>
-              <fieldset className="mb-3 rounded bg-white text-gray-600 shadow-lg">
-                <label className="flex h-12 items-center border-b border-gray-200 py-3">
-                  <span className="px-2 text-right">Card</span>
-                  <input
-                    name="card"
-                    className="w-full px-3 focus:outline-none"
-                    placeholder="Card number MM/YY CVC"
-                    required=""
-                  />
-                </label>
-              </fieldset>
+              <div className="my-2 flex justify-between ">
+                <h2 className="text-lg font-semibold uppercase tracking-wide text-gray-300">
+                  Payment Information
+                </h2>
+                <button
+                  type="button"
+                  onClick={handleFake}
+                  className="ml-auto rounded-lg bg-gray-300 px-3 text-gray-600"
+                >
+                  Use test card 💳
+                </button>
+              </div>
+              <div className="flex justify-center rounded bg-white p-3">
+                <div className="w-full max-w-2xl p-3">
+                  <div className="pb-3 text-gray-800">Card Details</div>
+                  <CardElement />
+                </div>
+              </div>
             </section>
           </div>
-          <button className="submit-button w-full rounded-full bg-amber-600 px-4 py-3 text-xl font-semibold text-white transition-colors focus:outline-none focus:ring">
-            Pay ${cartTotal}
+          <button
+            type="submit"
+            className={`submit-button w-full rounded-full bg-amber-600 px-4 py-3 text-xl font-semibold text-white transition-colors focus:outline-none focus:ring ${
+              isProcessingPayment || !cartLength ? "hidden" : ""
+            }`}
+          >
+            Pay ₹{cartTotal}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

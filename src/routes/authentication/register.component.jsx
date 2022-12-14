@@ -4,13 +4,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { emailSignInStart, signUpStart } from "../../store/user/user.action";
 
 
+const defaultFormFields = {
+  displayName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
+
 const Register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const [displayName, setDisplayName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
+
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,10 +36,7 @@ const Register = () => {
 
     try {
       dispatch(signUpStart(email, password, displayName))
-      setDisplayName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
+      resetFormFields()
       // SetTimeout is necessary otherwise you will get an error 
       setTimeout(() => {
         dispatch(emailSignInStart(email, password))
@@ -50,12 +62,10 @@ const Register = () => {
             <label htmlFor="name">
               <p className="pb-2 font-medium text-slate-700">Name</p>
               <input
-                onChange={(event) => {
-                  setDisplayName(event.target.value);
-                }}
+                onChange={handleChange}
                 required
-                id="name"
-                name="name"
+                id="displayName"
+                name="displayName"
                 type="text"
                 value={displayName}
                 className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
@@ -65,9 +75,7 @@ const Register = () => {
             <label htmlFor="email">
               <p className="pb-2 font-medium text-slate-700">Email address</p>
               <input
-                onChange={(event) => {
-                  setEmail(event.target.value);
-                }}
+                onChange={handleChange}
                 required
                 id="email"
                 name="email"
@@ -80,9 +88,7 @@ const Register = () => {
             <label htmlFor="password">
               <p className="pb-2 font-medium text-slate-700">Password</p>
               <input
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                }}
+                onChange={handleChange}
                 required
                 id="password"
                 name="password"
@@ -97,12 +103,10 @@ const Register = () => {
                 Confirm Password
               </p>
               <input
-                onChange={(event) => {
-                  setConfirmPassword(event.target.value);
-                }}
+                onChange={handleChange}
                 required
-                id="confirm-password"
-                name="confirm-password"
+                id="confirmPassword"
+                name="confirmPassword"
                 type="password"
                 value={confirmPassword}
                 className="w-full rounded-lg border border-slate-200 py-3 px-3 hover:shadow focus:border-slate-500 focus:outline-none"
