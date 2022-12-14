@@ -12,6 +12,7 @@ import Shipping from "./checkoutForm/shipping/shipping.component";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { emptyItemsInCart } from "../../store/cart/cart.action";
 import ErrorComponent from "../../components/errorComponent/error.component";
+import EmptyCart from './emptyCart.component';
 
 const Checkout = () => {
   const dispatch = useDispatch();
