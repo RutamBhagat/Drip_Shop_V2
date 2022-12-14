@@ -11,7 +11,7 @@ import Warning from "./checkoutForm/warning/warning.component";
 import Shipping from "./checkoutForm/shipping/shipping.component";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { emptyItemsInCart } from "../../store/cart/cart.action";
-import ErrorComponent from "../../components/errorComponent/ErrorComponent";
+import ErrorComponent from "../../components/errorComponent/error.component";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -29,10 +29,15 @@ const Checkout = () => {
     summeryRef.current.classList.toggle("lg:grid-cols-3");
   };
 
+  const showAlert = (id) => {
+    const alert = document.querySelector(`#${id}`);
+    alert.classList.toggle("hidden");
+    // alert.classList.toggle("bg-white");
+    // alert.classList.toggle("bg-opacity-75");
+  };
+
   const handleFake = () => {
-    alert(
-      "Use card: 4000003560000008, exp date: any future date, cvc: any 3 digit number"
-    );
+    showAlert("popup-modal-credit-card");
   };
 
   const stripe = useStripe();
@@ -71,17 +76,37 @@ const Checkout = () => {
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
-      <ErrorComponent errormessage={"Payment Failed"} />;
+      showAlert("popup-modal-failed");
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         dispatch(emptyItemsInCart());
-        <ErrorComponent errormessage={"Payment Successful"} />;
+        showAlert("popup-modal-success");
       }
     }
   };
 
   return (
     <div className="pt-24">
+      <div className="flex flex-row">
+        <ErrorComponent
+          message={`
+          Card: 4000003560000008 |
+          Exp Date: any future date |
+          CVC: any 3 digit number`}
+          id="popup-modal-credit-card"
+          showAlert={showAlert}
+        />
+        <ErrorComponent
+          message={"Payment Successful"}
+          id="popup-modal-success"
+          showAlert={showAlert}
+        />
+        <ErrorComponent
+          message={"Payment Failed"}
+          id="popup-modal-failed"
+          showAlert={showAlert}
+        />
+      </div>
       <div ref={summeryRef} className="grid min-h-screen">
         <div className="col-span-1 mx-3 bg-white sm:mx-12 lg:order-2 lg:mx-0">
           <h1 className="border-b-2 py-6 px-8 text-xl text-gray-600">
