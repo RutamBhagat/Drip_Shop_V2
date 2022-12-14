@@ -32,8 +32,6 @@ const Checkout = () => {
   const showAlert = (id) => {
     const alert = document.querySelector(`#${id}`);
     alert.classList.toggle("hidden");
-    // alert.classList.toggle("bg-white");
-    // alert.classList.toggle("bg-opacity-75");
   };
 
   const handleFake = () => {
