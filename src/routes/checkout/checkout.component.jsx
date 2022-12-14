@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import CheckoutCartItem from "./checkoutCartItem.component";
-import EmptyCart from "./emptyCart.component";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import {
   selectCartCount,
@@ -11,8 +10,10 @@ import {
 import Warning from "./checkoutForm/warning/warning.component";
 import Shipping from "./checkoutForm/shipping/shipping.component";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { emptyItemsInCart } from "../../store/cart/cart.action";
 
 const Checkout = () => {
+  const dispatch = useDispatch()
   const cartLength = useSelector(selectCartCount);
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
@@ -73,6 +74,7 @@ const Checkout = () => {
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         alert("Payment Successful");
+        dispatch(emptyItemsInCart)
       }
     }
   };

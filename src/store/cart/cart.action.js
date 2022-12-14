@@ -37,6 +37,11 @@ export const removeItemFromCart = (cartItems, productToRemove) => {
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
+export const emptyItemsInCart = () => {
+    const newCartItems = {};
+    return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+};
+
 export const updateItemInCart = (cartItems, productToUpdate, newQuantity) => {
     const updateCartItem = (cartItems, productToUpdate, newQuantity) => {
         return cartItems.map((inst) => {

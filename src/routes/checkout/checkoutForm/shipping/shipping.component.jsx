@@ -1,26 +1,29 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../../store/user/user.selector";
 
-const defaultFormFields = {
-  name: "",
-  email: "",
-  address: "",
-  city: "",
-  state: "",
-  postal_code: "",
-  country: "IN",
-};
-
-const fakeFormFields = {
-  name: "Anonymous",
-  email: "namelessone@gmail.com",
-  address: "Malbar Hill S.O.",
-  city: "Mumbai",
-  state: "MAHARASHTRA",
-  postal_code: "400006",
-  country: "IN",
-};
 
 const Shipping = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const defaultFormFields = {
+    name: currentUser ? currentUser.displayName : "",
+    email: currentUser ? currentUser.email : "",
+    address: "",
+    city: "",
+    state: "",
+    postal_code: "",
+    country: "IN",
+  };
+  
+  const fakeFormFields = {
+    name: currentUser ? currentUser.displayName : "Anonymous",
+    email: currentUser ? currentUser.email : "namelessone@gmail.com",
+    address: "Malbar Hill S.O.",
+    city: "Mumbai",
+    state: "MAHARASHTRA",
+    postal_code: "400006",
+    country: "IN",
+  };
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { name, email, address, city, state, postal_code, country } =
     formFields;
