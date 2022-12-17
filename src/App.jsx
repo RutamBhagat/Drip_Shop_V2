@@ -9,6 +9,7 @@ import Register from "./routes/authentication/register.component";
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
+import Contacts from "./routes/contacts/contacts.components";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const App = () => {
           <Route index element={<Signin />} />
           <Route path="register" element={<Register />} />
         </Route>
+        <Route path="contacts" element={<Contacts />} />
         <Route path="checkout" element={<Checkout />} />
       </Route>
     </Routes>
