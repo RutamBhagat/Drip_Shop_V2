@@ -36,7 +36,7 @@ const HiddenMenu = ({hiddenMenuIsOpen}: HiddenMenuProps) => {
             <h1 className="text-lg font-normal">SHOP</h1>
           </div>
         </Link>
-        <Link className="text-md my-2 flex" to="/">
+        <Link className="text-md my-2 flex" to="/contacts">
           <div className="card-zoom mr-3 h-12 w-12 rounded-2xl bg-white drop-shadow-md hover:bg-gray-300">
             <i className="fa-solid fa-address-book card-zoom-text text-lg text-gray-700 opacity-100 hover:text-violet-900"></i>
           </div>

@@ -10,7 +10,7 @@ type HamburgerButtonComponentProps = {
 const HamburgerButtonComponent = ({hiddenMenuIsOpen, handleHiddenMenu}: HamburgerButtonComponentProps) => {
   return (
     <button
-      className="ml-auto group flex h-9 w-9 flex-col items-center justify-center rounded normal:hidden"
+      className="group flex h-9 w-9 flex-col items-center justify-center rounded normal:hidden"
       onClick={handleHiddenMenu}
     >
       <div

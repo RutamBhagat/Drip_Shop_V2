@@ -36,7 +36,7 @@ const Navigation = () => {
         }`}
       >
         <div className="bg-transparent">
-          <div className="mx-auto flex items-center justify-between bg-transparent py-5 px-10 normal:px-3 md:px-10 lg:max-w-[90vw] xl:max-w-[80vw]">
+          <div className="mx-auto flex items-center justify-between bg-transparent py-5 px-10 normal:px-3 md:px-10 max-w-6xl">
             <HamburgerButtonComponent hiddenMenuIsOpen={hiddenMenuIsOpen} handleHiddenMenu={handleHiddenMenu} />
             <Link
               className="text-md text-gray-200 hover:text-violet-700"
