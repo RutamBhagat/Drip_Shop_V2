@@ -23,7 +23,7 @@ const CheckoutCartItem = ({ cartItem }: CheckoutCartItem) => {
   };
 
   return (
-    <div className="mx-1 p-1 my-1.5 w-full max-w-5xl flex rounded-lg shadow-lg">
+    <div className="mx-1 p-1 my-1.5 w-full max-w-4xl flex rounded-lg shadow-lg">
       <div className="flex w-full justify-between">
         <div
           className="w-2/3 max-w-[250px] h-[250px]  rounded-l-lg"

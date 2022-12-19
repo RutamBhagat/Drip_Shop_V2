@@ -21,8 +21,13 @@ export const addItemToCart = (cartItems: CartItem[], productToAdd: CategoryItem)
         if (existingCartItem) {
             return cartItems.map((inst) => {
                 if (inst.id === productToAdd.id) {
-                    const quantity = inst.quantity + 1;
-                    return { ...inst, quantity };
+                    if(inst.quantity === 10){
+                        return inst;
+                    }
+                    else{
+                        const quantity = inst.quantity + 1;
+                        return { ...inst, quantity };
+                    }
                 } else {
                     return inst;
                 }

@@ -125,7 +125,7 @@ const Checkout = () => {
               </div>
             )}
           </div>
-          <div className="mx-auto max-w-5xl border-b px-8">
+          <div className="mx-auto max-w-4xl border-b px-8">
             <div className="flex justify-between py-4 text-gray-600">
               <span>Subtotal</span>
               <span className="text-xl font-semibold text-amber-900">
@@ -137,7 +137,7 @@ const Checkout = () => {
               <span className="text-xl font-semibold text-amber-900">Free</span>
             </div>
           </div>
-          <div className="mx-auto flex max-w-5xl justify-between px-8 py-8 text-xl font-semibold text-gray-600">
+          <div className="mx-auto flex max-w-4xl justify-between px-8 py-8 text-xl font-semibold text-gray-600">
             <span>Total</span>
             <span className="text-xl">₹{cartTotal}</span>
           </div>
@@ -145,7 +145,7 @@ const Checkout = () => {
             <div className="flex items-center justify-center p-5">
               <button
                 onClick={togglePaymentForm}
-                className="w-2/3 max-w-2xl rounded-full bg-amber-600 px-4 py-3 text-center text-xl font-semibold text-white transition-colors focus:outline-none focus:ring md:w-1/3 lg:w-2/3"
+                className="w-2/3 max-w-md rounded-full bg-amber-600 px-4 py-3 text-center text-xl font-semibold text-white transition-colors focus:outline-none focus:ring md:w-1/3 lg:w-2/3"
               >
                 Proceed To Pay
               </button>
