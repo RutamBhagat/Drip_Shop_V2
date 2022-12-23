@@ -5,7 +5,11 @@ import { selectCurrentUser } from "../../../store/user/user.selector";
 import { signOutStart } from "../../../store/user/user.action";
 
 
-const HiddenMenu = ({ hiddenMenuIsOpen }) => {
+type HiddenMenuProps = {
+  hiddenMenuIsOpen: boolean
+}
+
+const HiddenMenu = ({ hiddenMenuIsOpen }: HiddenMenuProps) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const signOutUser = () => dispatch(signOutStart());
